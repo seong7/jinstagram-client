@@ -7,7 +7,7 @@ const LoginPage = () => {
     <PageLayout>
       <header className='header'>
         <nav></nav>
-        <section className='header__video-wrapper'>
+        <div className='header__video-wrapper'>
           <video
             className='header__video'
             autoPlay
@@ -24,6 +24,9 @@ const LoginPage = () => {
               type='video/webm'
             />
           </video>
+        </div>
+        <section className='header__content-centered'>
+          <p>Get Connected To The World, now</p>
         </section>
       </header>
       <section>
