@@ -1,5 +1,6 @@
 import React from 'react';
 import { PageLayout } from '../styled';
+import { LoginForm } from '../../containers';
 import './LoginPage.scss';
 
 const LoginPage = () => {
@@ -30,10 +31,7 @@ const LoginPage = () => {
         </section>
       </header>
       <section>
-        <form name='login' autoComplete='off'>
-          <label htmlFor='user-id'>아이디</label>
-          <input prefix='id입력' type='text' id='user-id' />
-        </form>
+        <LoginForm />
       </section>
     </PageLayout>
   );
