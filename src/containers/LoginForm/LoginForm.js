@@ -8,12 +8,14 @@ const LoginForm = () => {
         placeholder='ID'
         className='login__form-element'
         required
+        maxLength='20'
         type='text'
       />
       <input
         placeholder='Password'
         className='login__form-element'
         required
+        maxLength='20'
         type='password'
       />
       <button className='login__form-element login-btn' type='submit'>
