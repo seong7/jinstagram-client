@@ -11,11 +11,8 @@ export const login = async (username, password) => {
       password,
     }),
   });
-  try {
-    const res = await fetch(req);
-    const data = await res.json();
-    // jwt return 해야함
-  } catch (e) {
-    throw e;
-  }
+  const result = await fetch(req);
+  // const data = await res.json();
+  // jwt return 해야함
+  return result;
 };

@@ -6,14 +6,21 @@ import { LoginForm } from '../../components';
 const Login = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const [auth, setAuth] = useState(null);
+  const [isAuthorized, setIsAuthorized] = useState(null);
+  const [isError, setIsError] = useState(null);
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      login(id, password)
-        .then((r) => console.log(r))
-        .catch((e) => console.log('error', e));
+      login(id, password).then((response) => {
+        if (response.status === 200) {
+          setIsAuthorized('authorized');
+          setIsError(null);
+        } else if (response.status !== 200) {
+          setIsError('error');
+          setIsAuthorized(null);
+        }
+      });
     },
     [id, password]
   );
@@ -32,6 +39,8 @@ const Login = () => {
       onSubmit={handleSubmit}
       onChange={handleChange}
       inputValues={{ id, password }}
+      isError={isError}
+      isAuthorized={isAuthorized}
     />
   );
 };

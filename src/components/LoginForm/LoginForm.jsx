@@ -35,7 +35,9 @@ const LoginForm = (props) => {
         {
           className: 'login__form-element login-btn',
           type: 'submit',
-          text: 'Login',
+          text: props.isError ? '다시 시도해주세요.' : '로그인',
+          isError: props.isError,
+          isAuthorized: props.isAuthorized,
         },
       ]}
     />
