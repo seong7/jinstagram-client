@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './Login.scss';
 import { login } from '../../api/loginApi';
 import { LoginForm } from '../../components';
@@ -8,6 +8,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [isAuthorized, setIsAuthorized] = useState(null);
   const [isError, setIsError] = useState(null);
+  const [focusedInputName, setFocusedInputName] = useState(null);
+
+  useEffect(() => {
+    setFocusedInputName('id');
+  }, [])
 
   const handleSubmit = useCallback(
     (e) => {
@@ -19,6 +24,8 @@ const Login = () => {
         } else if (response.status !== 200) {
           setIsError('error');
           setIsAuthorized(null);
+          setFocusedInputName('password');
+          setPassword('');
         }
       });
     },
@@ -38,9 +45,10 @@ const Login = () => {
     <LoginForm
       onSubmit={handleSubmit}
       onChange={handleChange}
-      inputValues={{ id, password }}
+      inputValueState={{ id, password }}
       isError={isError}
       isAuthorized={isAuthorized}
+      inputFocus={focusedInputName}
     />
   );
 };

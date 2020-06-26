@@ -17,8 +17,9 @@ const LoginForm = (props) => {
           required: true,
           maxLength: '20',
           type: 'text',
-          value: props.inputValues.id,
+          value: props.inputValueState.id,
           onChange: props.onChange,
+          focus: props.inputFocus === 'id' ? 'true' : 'false' // boolean 을 넣어 줄 수 없어 string 으로 처리
         },
         {
           placeholder: 'Password',
@@ -27,8 +28,9 @@ const LoginForm = (props) => {
           required: true,
           maxLength: '20',
           type: 'password',
-          value: props.inputValues.password,
+          value: props.inputValueState.password,
           onChange: props.onChange,
+          focus: props.inputFocus === 'password' ? 'true' : 'false'
         },
       ]}
       buttons={[
