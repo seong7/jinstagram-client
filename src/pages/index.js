@@ -1,3 +1,3 @@
-import LoginPage from './LoginPage/LoginPage';
+import LoginPage from './LoginPage/LoginPage.jsx';
 
 export { LoginPage };

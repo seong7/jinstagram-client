@@ -1,3 +1,3 @@
-import LoginForm from './LoginForm/LoginForm';
+import Login from './Login/Login.jsx';
 
-export { LoginForm };
+export { Login };

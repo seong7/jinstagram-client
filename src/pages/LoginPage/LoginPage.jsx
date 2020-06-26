@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageLayout } from '../styled';
-import { LoginForm } from '../../containers';
+import { Login } from '../../containers';
 import './LoginPage.scss';
 
 const LoginPage = () => {
@@ -31,7 +31,7 @@ const LoginPage = () => {
         </section>
       </header>
       <section>
-        <LoginForm />
+        <Login />
       </section>
     </PageLayout>
   );
