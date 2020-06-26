@@ -1,14 +1,37 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SAMPLE_ACTION = 'auth/SAMPLE_ACTION';
+const CHANGE_FIELD = 'auth/CHANGE_FIELD';
+const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
-export const sampleAction = createAction(SAMPLE_ACTION);
+const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActiontypes(
+  'auth/LOGIN'
+)
 
-const initialState = {};
+export const login = createAction(LOGIN, ({usename, password}) => ({
+  username,
+  password
+}));
+
+const initialState = {
+  login: {
+    username: '',
+    password: ''
+  },
+  auth: null,
+  authError: null
+};
 
 const auth = handleActions(
   {
-    [SAMPLE_ACTION] : (state, action) => state,
+    [LOGIN_SUCCESS] : (state, { payload: auth }) => ({
+      ...state,
+      authError: null,
+      auth
+    }),
+    [LOGIN_FAILURE] : (state, { payload: error }) => ({
+      ...state,
+      authError: error,
+    }),
   },
   initialState,
 )
