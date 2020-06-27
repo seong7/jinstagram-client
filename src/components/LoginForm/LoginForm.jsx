@@ -12,14 +12,14 @@ const LoginForm = (props) => {
       inputs={[
         {
           placeholder: 'ID',
-          name: 'id',
+          name: 'userId',
           className: 'login__form-element',
           required: true,
           maxLength: '20',
           type: 'text',
-          value: props.inputValueState.id,
+          value: props.inputValueState.userId,
           onChange: props.onChange,
-          focus: props.inputFocus === 'id' ? 'true' : 'false' // boolean 을 넣어 줄 수 없어 string 으로 처리
+          focus: props.inputFocus === 'userId' ? 'true' : 'false', // boolean 을 넣어 줄 수 없어 string 으로 처리
         },
         {
           placeholder: 'Password',
@@ -30,7 +30,7 @@ const LoginForm = (props) => {
           type: 'password',
           value: props.inputValueState.password,
           onChange: props.onChange,
-          focus: props.inputFocus === 'password' ? 'true' : 'false'
+          focus: props.inputFocus === 'password' ? 'true' : 'false',
         },
       ]}
       buttons={[
