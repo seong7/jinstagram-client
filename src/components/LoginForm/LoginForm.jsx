@@ -19,7 +19,6 @@ const LoginForm = (props) => {
           type: 'text',
           value: props.inputValueState.userId,
           onChange: props.onChange,
-          isError: props.isError,
         },
         {
           placeholder: 'Password',
@@ -31,7 +30,6 @@ const LoginForm = (props) => {
           value: props.inputValueState.password,
           onChange: props.onChange,
           focus: props.isPasswordFocused === true ? 'true' : 'false',
-          isError: props.isError,
         },
       ]}
       buttons={[
