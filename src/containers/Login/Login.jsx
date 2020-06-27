@@ -1,12 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, login } from '../../modules/auth';
-import './Login.scss';
-// import { login } from '../../api/loginApi';
 import { LoginForm } from '../../components';
-// import { login } from '../../lib/api/loginApi';
+import './Login.scss';
 
-const Login = () => {
+const Login = ({ history }) => {
   const dispatch = useDispatch();
   const { form, auth, authError } = useSelector(({ auth }) => {
     // console.log('form : ', auth.login);
@@ -81,6 +80,7 @@ const Login = () => {
     }
     if (auth) {
       console.log('로그인 성공');
+      history.push('/');
       // console.log(auth);
     }
   }, [auth, authError]);
@@ -97,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);
