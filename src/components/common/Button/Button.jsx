@@ -4,15 +4,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const Button = memo((props) => {
-  const [style, setStyle] = useState(null);
+  const [style, setStyle] = useState('');
 
   useEffect(() => {
     if (props.isError) {
-      setStyle('error');
-    } else if (props.isAuthorized) {
-      setStyle('authorized');
+      setStyle('redShadow');
     }
-  }, [props.isError, props.isAuthorized]);
+  }, [props.isError]);
 
   return (
     <button className={`${props.className} ${style}`} type={props.type}>

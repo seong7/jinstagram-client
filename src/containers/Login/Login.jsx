@@ -16,28 +16,22 @@ const Login = ({ history }) => {
       // user: user.user,
     };
   });
-  // const [id, setId] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [isAuthorized, setIsAuthorized] = useState(null);
-  // const [isError, setIsError] = useState(null);
-  const [focusedInputName, setFocusedInputName] = useState(null);
+  const [isError, setIsError] = useState(null);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
-  const handleChange = (e) => {
-    const { value, name } = e.target;
-    dispatch(
-      changeField({
-        form: 'login',
-        key: name,
-        value,
-      })
-    );
-    // console.log(form);
-    // if (name === 'id') {
-    //   setId(value);
-    // } else if (name === 'password') {
-    //   setPassword(value);
-    // }
-  };
+  const handleChange = useCallback(
+    (e) => {
+      const { value, name } = e.target;
+      dispatch(
+        changeField({
+          form: 'login',
+          key: name,
+          value,
+        })
+      );
+    },
+    [dispatch]
+  );
 
   const handleSubmit = useCallback(
     (e) => {
@@ -70,12 +64,17 @@ const Login = ({ history }) => {
   );
 
   useEffect(() => {
-    // setFocusedInputName('userId');
-  }, []);
-
-  useEffect(() => {
     if (authError) {
       console.log('로그인 실패');
+      setIsError('error');
+      setIsPasswordFocused(true);
+      dispatch(
+        changeField({
+          form: 'login',
+          key: 'password',
+          value: '',
+        })
+      );
       // console.log(authError);
     }
     if (auth) {
@@ -83,16 +82,15 @@ const Login = ({ history }) => {
       history.push('/');
       // console.log(auth);
     }
-  }, [auth, authError]);
+  }, [auth, authError, dispatch, history]);
 
   return (
     <LoginForm
       onSubmit={handleSubmit}
       onChange={handleChange}
       inputValueState={{ userId: form.userId, password: form.password }}
-      // isError={isError}
-      // isAuthorized={isAuthorized}
-      inputFocus={focusedInputName}
+      isError={isError}
+      isPasswordFocused={isPasswordFocused}
     />
   );
 };

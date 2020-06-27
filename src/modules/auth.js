@@ -6,7 +6,8 @@ import createRequestSaga, {
 import * as authAPI from '../lib/api/loginApi';
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
-const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
+const INITIALIZE_INPUT = 'auth/INITIALIZE_INPUT';
+// const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN'
 );
@@ -18,6 +19,10 @@ export const changeField = createAction(
     key, // userId, password, passwordConfirm
     value, // 실제 바꾸려는 값
   })
+);
+export const initializeInput = createAction(
+  INITIALIZE_INPUT,
+  ({ form, key, value }) => ({})
 );
 export const login = createAction(LOGIN, ({ userId, password }) => ({
   userId,

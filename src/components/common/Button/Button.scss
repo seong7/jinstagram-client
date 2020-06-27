@@ -24,10 +24,9 @@ button {
   color: #fff;
 }
 
-.error {
-  border-color: #ff1f1f;
-  background: #ff3c3c;
-  color: #fff;
+.redShadow {
+  border: 1.7px solid #ff7777;
+  box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
 }
 
 .authorized {
