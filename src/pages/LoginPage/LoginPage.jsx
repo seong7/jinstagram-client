@@ -1,13 +1,13 @@
 import React from 'react';
 import { PageLayout } from '../styled';
-import { Login } from '../../containers';
+import { Login, Nav } from '../../containers';
 import './LoginPage.scss';
 
 const LoginPage = () => {
   return (
     <PageLayout>
       <header className='header'>
-        <nav></nav>
+        <Nav />
         <div className='header__video-wrapper'>
           <video
             className='header__video'
