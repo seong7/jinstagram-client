@@ -16,8 +16,8 @@ const Login = ({ history }) => {
       // user: user.user,
     };
   });
-  const [isError, setIsError] = useState(null);
-  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [isPasswordError, setIsPasswordError] = useState(false);
+  const [isIDError, setisIDError] = useState(false);
 
   const handleChange = useCallback(
     (e) => {
@@ -44,38 +44,46 @@ const Login = ({ history }) => {
           password: password,
         })
       );
-      // login(id, password).then((response) => {
-      //   if (response.status === 200) {
-      //     setIsAuthorized('authorized');
-      //     setIsError(null);
-      //   } else if (response.status !== 200) {
-      //     setIsError('error');
-      //     setIsAuthorized(null);
-      //     setFocusedInputName('password');
-      //     setPassword('');
-      //   }
-      // });
     },
-    [
-      /* id, password */
-      dispatch,
-      form,
-    ]
+    [dispatch, form]
   );
 
   useEffect(() => {
     if (authError) {
       console.log('로그인 실패');
-      setIsError('error');
-      setIsPasswordFocused(true);
-      dispatch(
-        changeField({
-          form: 'login',
-          key: 'password',
-          value: '',
-        })
-      );
-      // console.log(authError);
+      console.log(authError.message);
+      switch (authError.message) {
+        case 'ID not found':
+          setisIDError(true);
+          setIsPasswordError(false);
+          dispatch(
+            changeField({
+              form: 'login',
+              key: 'userId',
+              value: '',
+            })
+          );
+          dispatch(
+            changeField({
+              form: 'login',
+              key: 'password',
+              value: '',
+            })
+          );
+          break;
+
+        case 'Password not correct':
+          setisIDError(false);
+          setIsPasswordError(true);
+          dispatch(
+            changeField({
+              form: 'login',
+              key: 'password',
+              value: '',
+            })
+          );
+          break;
+      }
     }
     if (auth) {
       console.log('로그인 성공');
@@ -89,8 +97,8 @@ const Login = ({ history }) => {
       onSubmit={handleSubmit}
       onChange={handleChange}
       inputValueState={{ userId: form.userId, password: form.password }}
-      isError={isError}
-      isPasswordFocused={isPasswordFocused}
+      isPasswordError={isPasswordError}
+      isIDError={isIDError}
     />
   );
 };

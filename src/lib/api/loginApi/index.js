@@ -13,11 +13,15 @@ export const login = async ({ userId, password }) => {
     }),
   });
   const response = await fetch(req);
-  // const data = await res.json();
   // jwt return 해야함
   if (response.status === 200) {
     return response;
   } else if (response.status !== 200) {
-    throw new Error('로그인 실패');
+    const message = await response.text(); // response.body (ReadableStream) 를 string 형태로 parsing
+    if (message === 'ID not found') {
+      throw new Error('ID not found');
+    } else if (message === 'Password not correct') {
+      throw new Error('Password not correct');
+    }
   }
 };
