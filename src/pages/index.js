@@ -1,4 +1,4 @@
 import LoginPage from './LoginPage/LoginPage.jsx';
-import RegisterPage from './RegisterPage/RegisterPage.jsx';
+import JoinPage from './JoinPage/JoinPage.jsx';
 
-export { LoginPage, RegisterPage };
+export { LoginPage, JoinPage };

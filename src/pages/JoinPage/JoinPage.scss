@@ -1,4 +1,4 @@
-.register__page-img {
+.join__page-img {
   height: 100%;
   width: 100%;
   background-image: linear-gradient(
@@ -7,7 +7,11 @@
       rgba(0, 0, 0, 0.2) 100%
     ),
     linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%),
-    url('../../assets/register-bg.PNG');
+    url('../../assets/join-bg.PNG');
+  background-position: center;
   background-size: cover;
   filter: blur(3px);
+}
+
+@media screen and (max-width: 1200px) {
 }

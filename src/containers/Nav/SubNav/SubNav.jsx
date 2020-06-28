@@ -5,8 +5,8 @@ import './SubNav.scss';
 import { useCallback } from 'react';
 
 const SubNav = ({ history }) => {
-  const clickRegister = useCallback((e) => {
-    history.push('/register');
+  const clickJoin = useCallback((e) => {
+    history.push('/join');
   }, []);
 
   return (
@@ -15,7 +15,7 @@ const SubNav = ({ history }) => {
         <Button
           className='bg-blue header__nav-sub-nav-element'
           text='회원가입'
-          onClick={clickRegister}
+          onClick={clickJoin}
         />
       </li>
     </ul>
