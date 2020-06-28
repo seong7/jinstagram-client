@@ -1,7 +1,13 @@
 import React from 'react';
+import { PageLayout } from '../styled';
+import './RegisterPage.scss';
 
 const RegisterPage = () => {
-  return <div>회원가입 페이지</div>;
+  return (
+    <PageLayout>
+      <img className='register__page-img' />
+    </PageLayout>
+  );
 };
 
 export default RegisterPage;
