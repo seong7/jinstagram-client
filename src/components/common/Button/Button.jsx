@@ -13,7 +13,11 @@ const Button = memo((props) => {
   }, [props.isError]);
 
   return (
-    <button className={`${props.className} ${style}`} type={props.type}>
+    <button
+      className={`${props.className} ${style}`}
+      type={props.type}
+      onClick={props.onClick}
+    >
       {props.text}
     </button>
   );

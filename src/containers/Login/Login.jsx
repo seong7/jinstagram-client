@@ -83,6 +83,9 @@ const Login = ({ history }) => {
             })
           );
           break;
+
+        default:
+          break;
       }
     }
     if (auth) {
