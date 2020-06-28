@@ -39,7 +39,7 @@ const LoginForm = (props) => {
       ]}
       buttons={[
         {
-          className: 'login__form-element btn',
+          className: 'login__form-element bg-blue',
           type: 'submit',
           text:
             props.isPasswordError || props.isIDError

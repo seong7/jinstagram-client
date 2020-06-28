@@ -6,6 +6,9 @@ input {
   &:invalid {
     box-shadow: none;
   }
+  &::placeholder {
+    color: #24292e;
+  }
 }
 
 .focus__shadow-blue {
