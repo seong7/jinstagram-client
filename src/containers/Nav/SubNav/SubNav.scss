@@ -1,0 +1,16 @@
+.header__nav-sub-nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 0.85rem;
+  li {
+    height: 70%;
+  }
+}
+
+.header__nav-sub-nav-element {
+  height: 100%;
+}
