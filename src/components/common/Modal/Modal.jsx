@@ -2,18 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './Modal.scss';
 
 const Modal = (props) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [classNames, setClassNames] = useState('');
 
   useEffect(() => {
-    props.isVisible ? setIsVisible(false) : setIsVisible(true);
-  }, [props.isVisible]);
+    const className =
+      (props.className || '') + (props.isVisible ? 'visible' : '');
+    setClassNames(className);
+  }, [props.className, props.isVisible]);
 
   return (
-    <div
-      className={`modal__wrapper ${
-        props.className + (isVisible ? ' visible' : '')
-      }`}
-    >
+    <div className={`modal__wrapper ${classNames}`}>
       <div className={`modal__content`}>{props.children}</div>
     </div>
   );

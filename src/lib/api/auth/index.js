@@ -1,18 +1,17 @@
 const { REACT_APP_API_BASE_URL } = process.env;
 
-export const login = async ({ userId, password }) => {
-  // console.log(userId, password);
-  const req = new Request(`${REACT_APP_API_BASE_URL}/api/auth/login`, {
+const authReq = (type, body) =>
+  new Request(`${REACT_APP_API_BASE_URL}/api/auth/${type}`, {
     method: 'POST',
     headers: new Headers({
       'content-type': 'application/json',
     }),
-    body: JSON.stringify({
-      userId,
-      password,
-    }),
+    body: JSON.stringify(body),
   });
-  const response = await fetch(req);
+
+export const login = async ({ userId, password }) => {
+  // console.log(userId, password);
+  const response = await fetch(authReq('login', { userId, password }));
   // jwt return 해야함
   if (response.status === 200) {
     return response;
@@ -23,5 +22,14 @@ export const login = async ({ userId, password }) => {
     } else if (message === 'Password not correct') {
       throw new Error('Password not correct');
     }
+  }
+};
+
+export const join = async ({ userId, password }) => {
+  const response = await fetch(authReq('join', { userId, password }));
+  console.log(response);
+  if (response.status === 200) {
+    const result = await response.text();
+    return result;
   }
 };
