@@ -5,9 +5,12 @@ import './SubNav.scss';
 import { useCallback } from 'react';
 
 const SubNav = ({ history }) => {
-  const clickJoin = useCallback((e) => {
-    history.push('/join');
-  }, []);
+  const clickJoin = useCallback(
+    (e) => {
+      history.push('/join');
+    },
+    [history]
+  );
 
   return (
     <ul className='header__nav-sub-nav'>

@@ -3,6 +3,9 @@ input {
   border-radius: 3px;
   padding: 0px 10px;
   outline: none;
+  &:invalid {
+    box-shadow: none;
+  }
 }
 
 .focus__shadow-blue {
