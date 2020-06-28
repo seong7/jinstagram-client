@@ -22,26 +22,19 @@ button {
   color: #24292e;
   box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
     inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: background-color 0.1s cubic-bezier(0.3, 0, 0.5, 1);
   &:hover {
     background-color: #f3f4f6;
-    transition-duration: 0.1s;
   }
 }
 
-.btn-blue {
+.bg-blue {
   border-color: #05a081;
   background: #05a081;
   color: #fff;
 }
 
-.shadow-red {
-  border: 1.7px solid #ff7777;
-  box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
-}
-
-.authorized {
-  border-color: #1fff1f;
-  background: #3cff76;
-  color: #fff;
+.border-red {
+  border: 1.7px solid #fd8f8f;
+  // box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
 }

@@ -1,5 +1,12 @@
 input {
-  border: 1px solid grey;
+  border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 3px;
+  padding: 0px 10px;
   outline: none;
+}
+
+.focus__shadow-blue {
+  &:focus {
+    box-shadow: 0px 0px 4px 1px #05a08185;
+  }
 }

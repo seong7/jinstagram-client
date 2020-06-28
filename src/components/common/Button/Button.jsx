@@ -8,7 +8,7 @@ const Button = memo((props) => {
 
   useEffect(() => {
     if (props.isError) {
-      setStyle('shadow-red');
+      setStyle('border-red');
     }
   }, [props.isError]);
 

@@ -13,7 +13,7 @@ const LoginForm = (props) => {
         {
           placeholder: 'ID',
           name: 'userId',
-          className: 'login__form-element',
+          className: 'login__form-element focus__shadow-blue',
           required: true,
           maxLength: '20',
           type: 'text',
@@ -23,7 +23,7 @@ const LoginForm = (props) => {
         {
           placeholder: 'Password',
           name: 'password',
-          className: 'login__form-element',
+          className: 'login__form-element focus__shadow-blue',
           required: true,
           maxLength: '20',
           type: 'password',
@@ -34,7 +34,7 @@ const LoginForm = (props) => {
       ]}
       buttons={[
         {
-          className: 'login__form-element btn-blue',
+          className: 'login__form-element btn',
           type: 'submit',
           text: props.isError ? '다시 로그인하기' : '로그인',
           isError: props.isError,
