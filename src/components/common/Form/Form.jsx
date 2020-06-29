@@ -3,9 +3,13 @@ import { Input, Button } from '../index';
 
 const Form = (props) => {
   return (
-    <form {...props}>
-      {props.inputs && props.inputs.map((c, i) => <Input key={i} {...c} />)}
-      {props.buttons && props.buttons.map((c, i) => <Button key={i} {...c} />)}
+    <form
+      name={props.name}
+      className={props.className}
+      autoComplete={props.autoComplete}
+      onSubmit={props.onSubmit}
+    >
+      {props.children}
     </form>
   );
 };

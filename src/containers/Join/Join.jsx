@@ -46,7 +46,7 @@ const Join = ({ history }) => {
     if (authError) {
       console.log('회원가입 실패');
       console.log(authError.message);
-      // 실패에 대한 예외 처리
+      // 실패에 대한 예외 처리 필요
 
       if (auth) {
         console.log('회원가입 성공');
