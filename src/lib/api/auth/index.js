@@ -18,19 +18,17 @@ export const login = async ({ userId, password }) => {
     return response;
   } else if (response.status !== 200) {
     const message = await response.text(); // response.body (ReadableStream) 를 string 형태로 parsing
-    if (message === 'ID not found') {
-      throw new Error('ID not found');
-    } else if (message === 'Password not correct') {
-      throw new Error('Password not correct');
-    }
+    throw new Error(message);
   }
 };
 
 export const join = async ({ userId, password }) => {
   const response = await fetch(request('join', { userId, password }));
-  console.log(response);
+  // console.log(response);
   if (response.status === 200) {
-    const result = await response.text();
-    return result;
+    return response;
+  } else if (response.status !== 200) {
+    const message = await response.text();
+    throw new Error(message);
   }
 };

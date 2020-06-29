@@ -6,6 +6,7 @@ import createRequestSaga, {
 import * as authAPI from '../lib/api/auth';
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
+const INITIALIZE_AUTH = 'auth/INITIALIZE_AUTH';
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN'
 );
@@ -14,6 +15,7 @@ const [JOIN, JOIN_SUCCESS, JOIN_FAILURE] = createRequestActionTypes(
 );
 
 export const changeField = createAction(
+  // action type 과 payload 설정
   CHANGE_FIELD,
   ({ form, key, value }) => ({
     form, // register, login
@@ -21,6 +23,7 @@ export const changeField = createAction(
     value, // 실제 바꾸려는 값
   })
 );
+export const initializeAuth = createAction(INITIALIZE_AUTH);
 export const login = createAction(LOGIN, ({ userId, password }) => ({
   userId,
   password,
@@ -57,6 +60,11 @@ const auth = handleActions(
     [CHANGE_FIELD]: (state, { payload: { form, key, value } }) => ({
       ...state,
       [form]: { ...state[form], [key]: value },
+    }),
+    [INITIALIZE_AUTH]: (state) => ({
+      ...state,
+      auth: null,
+      authError: null,
     }),
     [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
       ...state,
