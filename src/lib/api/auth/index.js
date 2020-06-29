@@ -1,7 +1,7 @@
-const { REACT_APP_API_BASE_URL } = process.env;
+const { REACT_APP_PROXY, REACT_APP_API_BASE_URL } = process.env;
 
 const request = (type, data) =>
-  new Request(`${REACT_APP_API_BASE_URL}/api/auth/${type}`, {
+  new Request(`${REACT_APP_PROXY}/${REACT_APP_API_BASE_URL}/api/auth/${type}`, {
     method: 'POST',
     mode: 'cors',
     headers: new Headers({
