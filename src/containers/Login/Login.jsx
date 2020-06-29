@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { changeField, login } from '../../modules/auth';
+import { changeField, initializeAuth, login } from '../../modules/auth';
 import { LoginForm } from '../../components';
 import './Login.scss';
 
@@ -22,6 +22,11 @@ const Login = ({ history }) => {
   const handleChange = useCallback(
     (e) => {
       const { value, name } = e.target;
+      if (auth || authError) {
+        // auth 정보 초기화
+        dispatch(initializeAuth());
+      }
+
       dispatch(
         changeField({
           form: 'login',
@@ -30,7 +35,7 @@ const Login = ({ history }) => {
         })
       );
     },
-    [dispatch]
+    [dispatch, auth, authError]
   );
 
   const handleSubmit = useCallback(
