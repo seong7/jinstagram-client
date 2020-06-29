@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../../components/common';
 import './SubNav.scss';
-import { useCallback } from 'react';
 
-const SubNav = ({ history }) => {
+const SubNav = ({ history, location }) => {
   const clickJoin = useCallback(
     (e) => {
-      history.push('/join');
+      if (location.pathname === '/join') {
+        history.push('/login');
+      } else if (location.pathname === '/login') {
+        history.push('/join');
+      }
     },
-    [history]
+    [history, location]
   );
 
   return (
@@ -17,7 +20,7 @@ const SubNav = ({ history }) => {
       <li>
         <Button
           className='bg-blue header__nav-sub-nav-element'
-          text='회원가입'
+          text={location.pathname === '/join' ? '로그인' : '회원가입'}
           onClick={clickJoin}
         />
       </li>
