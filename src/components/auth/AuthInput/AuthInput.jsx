@@ -1,6 +1,5 @@
 import React, { useEffect, useState, memo, createRef } from 'react';
-import ReactIcon from '../ReactIcon/ReactIcon.jsx';
-import Input from '../Input/Input.jsx';
+import { ReactIcon, Input } from '../../common';
 import './AuthInput.scss';
 
 const AuthInput = memo((props) => {
@@ -11,7 +10,7 @@ const AuthInput = memo((props) => {
     if (props.focus) {
       input.current.focus();
     }
-  }, [props.focus]);
+  }, [props.focus, input]);
 
   return (
     <span

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Button, AuthInput } from '../common';
+import { Form, Button } from '../../common';
+import AuthInput from '../AuthInput/AuthInput.jsx';
 import './JoinForm.scss';
 
 const JoinForm = (props) => {
@@ -15,7 +16,7 @@ const JoinForm = (props) => {
         onSubmit={props.onSubmit}
       >
         <AuthInput
-          className={`input join__form-element ${
+          className={`join__form-element ${
             props.isIDConflict ? 'placeholder-red' : ''
           }`}
           placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}

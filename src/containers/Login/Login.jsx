@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { changeField, login } from '../../modules/auth';
-import { LoginForm } from '../../components';
+import { LoginForm } from '../../components/auth';
 import './Login.scss';
 
 const Login = ({ history }) => {

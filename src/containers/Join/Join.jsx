@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { changeField, join } from '../../modules/auth';
-import { JoinForm } from '../../components';
+import { JoinForm } from '../../components/auth';
 import { Modal } from '../../components/common';
 
 const Join = ({ history }) => {
@@ -55,20 +55,6 @@ const Join = ({ history }) => {
             value: '',
           })
         );
-        // dispatch(
-        //   changeField({
-        //     form: 'join',
-        //     key: 'password',
-        //     value: '',
-        //   })
-        // );
-        // dispatch(
-        //   changeField({
-        //     form: 'join',
-        //     key: 'passwordCheck',
-        //     value: '',
-        //   })
-        // );
       }
       setIsIDConflict(true);
     } else if (auth) {
