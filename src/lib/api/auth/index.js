@@ -1,6 +1,6 @@
 const { REACT_APP_PROXY, REACT_APP_API_BASE_URL } = process.env;
 
-const request = (type, data) =>
+const setRequest = (type, data) =>
   new Request(`${REACT_APP_PROXY}/${REACT_APP_API_BASE_URL}/api/auth/${type}`, {
     method: 'POST',
     mode: 'cors',
@@ -12,7 +12,7 @@ const request = (type, data) =>
 
 export const login = async ({ userId, password }) => {
   // console.log(userId, password);
-  const response = await fetch(request('login', { userId, password }));
+  const response = await fetch(setRequest('login', { userId, password }));
   // jwt return 해야함
   if (response.status === 200) {
     return response;
@@ -23,7 +23,7 @@ export const login = async ({ userId, password }) => {
 };
 
 export const join = async ({ userId, password }) => {
-  const response = await fetch(request('join', { userId, password }));
+  const response = await fetch(setRequest('join', { userId, password }));
   // console.log(response);
   if (response.status === 200) {
     return response;

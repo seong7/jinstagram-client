@@ -1,12 +1,14 @@
 import React from 'react';
 import { Form, Input, Button } from '../common';
+import { BsPersonFill } from 'react-icons/bs';
+
 import './JoinForm.scss';
 
 const JoinForm = (props) => {
   return (
     <>
       <div>
-        <p>[ 로고 ]</p>
+        <p></p>
       </div>
       <Form
         name='join'
@@ -15,6 +17,7 @@ const JoinForm = (props) => {
         onSubmit={props.onSubmit}
       >
         <Input
+          profix={<BsPersonFill />}
           className={`join__form-element focus__shadow-blue ${
             props.isIDConflict ? 'placeholder-red' : ''
           }`}
