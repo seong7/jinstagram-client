@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageLayout } from '../styled';
-import { Login, Nav } from '../../containers';
+import { Login } from '../../containers';
 import './LoginPage.scss';
 
 const LoginPage = () => {

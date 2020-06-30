@@ -1,5 +1,4 @@
 import React from 'react';
-import { Input, Button } from '../index';
 
 const Form = (props) => {
   return (
