@@ -1,0 +1,24 @@
+.auth__input-wrapper {
+  position: relative;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 1.68;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s;
+  display: inline-flex;
+}
+
+.auth__input-icon-wrapper {
+  margin-right: 4px;
+  font-size: 18px;
+}
+
+.auth__input {
+  border: 0px;
+}
+
+.shadow-blue {
+  transition: box-shadow ease-in-out 0.3s;
+  box-shadow: 0px 0px 4px 1px #05a08185;
+}

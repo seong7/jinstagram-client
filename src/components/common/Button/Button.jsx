@@ -6,11 +6,11 @@ import { useState } from 'react';
 const Button = memo((props) => {
   const [style, setStyle] = useState('');
 
-  useEffect(() => {
-    if (props.isError) {
-      setStyle('border-red');
-    }
-  }, [props.isError]);
+  // useEffect(() => {
+  //   if (props.isError) {
+  //     setStyle('border-red');
+  //   }
+  // }, [props.isError]);
 
   return (
     <button

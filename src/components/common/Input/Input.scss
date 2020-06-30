@@ -1,4 +1,4 @@
-input {
+.input {
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 3px;
   padding: 0px 10px;
@@ -13,12 +13,14 @@ input {
 }
 
 .focus__shadow-blue {
+  transition: box-shadow ease-in-out 0.3s;
   &:focus {
     box-shadow: 0px 0px 4px 1px #05a08185;
   }
 }
 
-.placeholder-red::placeholder {
+.placeholder-red::placeholder,
+.placeholder-red .input::placeholder {
   color: rgb(255, 75, 75);
   font-weight: bold;
 }

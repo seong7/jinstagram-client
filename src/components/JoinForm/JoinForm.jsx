@@ -1,14 +1,12 @@
 import React from 'react';
-import { Form, Input, Button } from '../common';
-import { BsPersonFill } from 'react-icons/bs';
-
+import { Form, Button, AuthInput } from '../common';
 import './JoinForm.scss';
 
 const JoinForm = (props) => {
   return (
     <>
       <div>
-        <p></p>
+        <p>[ 로고 ]</p>
       </div>
       <Form
         name='join'
@@ -16,9 +14,8 @@ const JoinForm = (props) => {
         autoComplete='off'
         onSubmit={props.onSubmit}
       >
-        <Input
-          profix={<BsPersonFill />}
-          className={`join__form-element focus__shadow-blue ${
+        <AuthInput
+          className={`input join__form-element ${
             props.isIDConflict ? 'placeholder-red' : ''
           }`}
           placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}
@@ -28,10 +25,11 @@ const JoinForm = (props) => {
           type={'text'}
           value={props.inputValueState.userId}
           onChange={props.onChange}
-          focus={props.isIDConflict === true ? 'true' : 'false'}
+          focus={props.isIDConflict}
+          prefixIcon={'BsPersonFill'}
         />
-        <Input
-          className={'join__form-element focus__shadow-blue'}
+        <AuthInput
+          className={'join__form-element'}
           placeholder={'password'}
           name={'password'}
           required={true}
@@ -39,9 +37,10 @@ const JoinForm = (props) => {
           type={'password'}
           value={props.inputValueState.password}
           onChange={props.onChange}
+          prefixIcon={'BsLockFill'}
         />
-        <Input
-          className={'join__form-element focus__shadow-blue'}
+        <AuthInput
+          className={'join__form-element'}
           placeholder={'password 확인'}
           name={'passwordCheck'}
           required={true}
@@ -49,6 +48,7 @@ const JoinForm = (props) => {
           type={'password'}
           value={props.inputValueState.passwordCheck}
           onChange={props.onChange}
+          prefixIcon={'BsLockFill'}
         />
         <Button
           className={'join__form-element bg-blue'}

@@ -1,14 +1,12 @@
-import React, { memo, useRef, useEffect } from 'react';
+import React, { memo, forwardRef } from 'react';
 import './Input.scss';
 
-const Input = memo((props) => {
-  const inputEl = useRef(null);
-
-  useEffect(() => {
-    if(props.focus === 'true') inputEl.current.focus();
+const Input = memo(
+  forwardRef((props, ref) => {
+    return (
+      <input {...props} className={`input ${props.className}`} ref={ref} />
+    );
   })
-  // console.log(props.name);
-  return <input {...props} ref={inputEl} />;
-});
+);
 
 export default Input;

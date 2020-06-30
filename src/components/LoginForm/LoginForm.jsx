@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button } from '../common';
+import { Form, AuthInput, Button } from '../common';
 import './LoginForm.scss';
 
 const LoginForm = (props) => {
@@ -10,28 +10,25 @@ const LoginForm = (props) => {
       autoComplete='off'
       onSubmit={props.onSubmit}
     >
-      <Input
-        className={`login__form-element focus__shadow-blue ${
+      <AuthInput
+        className={`login__form-element ${
           props.isIDError ? 'placeholder-red' : ''
         }`}
-        placeholder={
-          props.isIDError === true ? 'ID 가 존재하지 않습니다.' : 'ID'
-        }
+        placeholder={props.isIDError ? 'ID 가 존재하지 않습니다.' : 'ID'}
         name={'userId'}
         required={true}
         maxLength={'20'}
         type={'text'}
         value={props.inputValueState.userId}
         onChange={props.onChange}
-        focus={props.isIDError === true ? 'true' : 'false'}
+        focus={props.isIDError}
+        prefixIcon={'BsPersonFill'}
       />
-      <Input
-        className={`login__form-element focus__shadow-blue
+      <AuthInput
+        className={`login__form-element
         ${props.isPasswordError ? 'placeholder-red' : ''}`}
         placeholder={
-          props.isPasswordError === true
-            ? 'Password 가 일치하지 않습니다.'
-            : 'Password'
+          props.isPasswordError ? 'Password 가 일치하지 않습니다.' : 'Password'
         }
         name={'password'}
         required={true}
@@ -39,17 +36,13 @@ const LoginForm = (props) => {
         type={'password'}
         value={props.inputValueState.password}
         onChange={props.onChange}
-        focus={props.isPasswordError === true ? 'true' : 'false'}
+        focus={props.isPasswordError}
+        prefixIcon={'BsLockFill'}
       />
       <Button
         className={'login__form-element bg-blue'}
         type={'submit'}
-        text={
-          props.isPasswordError || props.isIDError
-            ? '다시 로그인하기'
-            : '로그인'
-        }
-        isError={props.isPasswordError || props.isIDError}
+        text={'로그인'}
       />
     </Form>
   );
