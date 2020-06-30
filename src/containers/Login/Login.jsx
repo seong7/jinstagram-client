@@ -17,7 +17,7 @@ const Login = ({ history }) => {
     };
   });
   const [isPasswordError, setIsPasswordError] = useState(false);
-  const [isIDError, setisIDError] = useState(false);
+  const [isIDError, setIsIDError] = useState(false);
 
   const handleChange = useCallback(
     (e) => {
@@ -59,7 +59,7 @@ const Login = ({ history }) => {
       console.log(authError.message);
       switch (authError.message) {
         case 'ID not found':
-          setisIDError(true);
+          setIsIDError(true);
           setIsPasswordError(false);
           dispatch(
             changeField({
@@ -78,7 +78,7 @@ const Login = ({ history }) => {
           break;
 
         case 'Password not correct':
-          setisIDError(false);
+          setIsIDError(false);
           setIsPasswordError(true);
           dispatch(
             changeField({

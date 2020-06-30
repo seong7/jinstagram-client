@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { changeField, join } from '../../modules/auth';
@@ -6,6 +6,7 @@ import { JoinForm } from '../../components';
 import { Modal } from '../../components/common';
 
 const Join = ({ history }) => {
+  const [isIDConflict, setIsIDConflict] = useState(false);
   const dispatch = useDispatch();
   const { form, auth, authError } = useSelector(({ auth }) => ({
     form: auth.join,
@@ -45,15 +46,36 @@ const Join = ({ history }) => {
   useEffect(() => {
     if (authError) {
       console.log('회원가입 실패');
-      console.log(JSON.parse(authError.message));
-      // 실패에 대한 예외 처리 필요
-
-      if (auth) {
-        console.log('회원가입 성공');
-        history.push('/');
+      console.log(authError.message);
+      if (authError.message === 'ID conflict') {
+        dispatch(
+          changeField({
+            form: 'join',
+            key: 'userId',
+            value: '',
+          })
+        );
+        // dispatch(
+        //   changeField({
+        //     form: 'join',
+        //     key: 'password',
+        //     value: '',
+        //   })
+        // );
+        // dispatch(
+        //   changeField({
+        //     form: 'join',
+        //     key: 'passwordCheck',
+        //     value: '',
+        //   })
+        // );
       }
+      setIsIDConflict(true);
+    } else if (auth) {
+      console.log('회원가입 성공');
+      history.push('/');
     }
-  }, [auth, authError, history]);
+  }, [auth, authError, history, dispatch]);
 
   return (
     <Modal isVisible={true}>
@@ -65,6 +87,7 @@ const Join = ({ history }) => {
           password: form.password,
           passwordCheck: form.passwordCheck,
         }}
+        isIDConflict={isIDConflict}
       />
     </Modal>
   );

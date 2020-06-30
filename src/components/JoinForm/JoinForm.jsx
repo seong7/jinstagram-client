@@ -16,13 +16,14 @@ const JoinForm = (props) => {
       >
         <Input
           className={'join__form-element focus__shadow-blue'}
-          placeholder={'ID'}
+          placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}
           name={'userId'}
           required={true}
           maxLength={'20'}
           type={'text'}
           value={props.inputValueState.userId}
           onChange={props.onChange}
+          focus={props.isIDConflict === true ? 'true' : 'false'}
         />
         <Input
           className={'join__form-element focus__shadow-blue'}
