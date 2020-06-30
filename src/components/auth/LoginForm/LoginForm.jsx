@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from '../../common';
-import AuthInput from '../AuthInput/AuthInput.jsx';
+import { AuthInput } from '../';
 import './LoginForm.scss';
 
 const LoginForm = (props) => {
