@@ -7,12 +7,12 @@ import './Login.scss';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
-  const { form, auth, authError } = useSelector(({ auth }) => {
+  const { form, auth, loginError } = useSelector(({ auth }) => {
     // console.log('form : ', auth.login);
     return {
       form: auth.login,
       auth: auth.auth,
-      authError: auth.authError,
+      loginError: auth.loginError,
       // user: user.user,
     };
   });
@@ -22,11 +22,6 @@ const Login = ({ history }) => {
   const handleChange = useCallback(
     (e) => {
       const { value, name } = e.target;
-      if (auth || authError) {
-        // auth 정보 초기화
-        dispatch(initializeAuth());
-      }
-
       dispatch(
         changeField({
           form: 'login',
@@ -35,7 +30,7 @@ const Login = ({ history }) => {
         })
       );
     },
-    [dispatch, auth, authError]
+    [dispatch, auth, loginError]
   );
 
   const handleSubmit = useCallback(
@@ -54,10 +49,10 @@ const Login = ({ history }) => {
   );
 
   useEffect(() => {
-    if (authError) {
+    if (loginError) {
       console.log('로그인 실패');
-      console.log(authError.message);
-      switch (authError.message) {
+      console.log(loginError.message);
+      switch (loginError.message) {
         case 'ID not found':
           setIsIDError(true);
           setIsPasswordError(false);
@@ -91,7 +86,7 @@ const Login = ({ history }) => {
       history.push('/');
       // console.log(auth);
     }
-  }, [auth, authError, dispatch, history]);
+  }, [auth, loginError, dispatch, history]);
 
   return (
     <LoginForm

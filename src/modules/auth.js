@@ -52,7 +52,8 @@ const initialState = {
     passwordCheck: '',
   },
   auth: null,
-  authError: null,
+  loginError: null,
+  joinError: null,
 };
 
 const auth = handleActions(
@@ -64,26 +65,27 @@ const auth = handleActions(
     [INITIALIZE_AUTH]: (state) => ({
       ...state,
       auth: null,
-      authError: null,
+      loginError: null,
+      joinError: null,
     }),
     [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
       ...state,
-      authError: null,
+      loginError: null,
       auth: auth,
     }),
     [LOGIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      authError: error,
+      loginError: error,
       auth: null,
     }),
     [JOIN_SUCCESS]: (state, { payload: auth }) => ({
       ...state,
-      authError: null,
+      joinError: null,
       auth: auth,
     }),
     [JOIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      authError: error,
+      joinError: error,
       auth: null,
     }),
   },

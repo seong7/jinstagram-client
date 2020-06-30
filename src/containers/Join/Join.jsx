@@ -8,10 +8,10 @@ import { Modal } from '../../components/common';
 const Join = ({ history }) => {
   const [isIDConflict, setIsIDConflict] = useState(false);
   const dispatch = useDispatch();
-  const { form, auth, authError } = useSelector(({ auth }) => ({
+  const { form, auth, joinError } = useSelector(({ auth }) => ({
     form: auth.join,
     auth: auth.auth,
-    authError: auth.authError,
+    joinError: auth.joinError,
   }));
 
   const handleChange = useCallback(
@@ -44,10 +44,10 @@ const Join = ({ history }) => {
   );
 
   useEffect(() => {
-    if (authError) {
+    if (joinError) {
       console.log('회원가입 실패');
-      console.log(authError.message);
-      if (authError.message === 'ID conflict') {
+      console.log(joinError.message);
+      if (joinError.message === 'ID conflict') {
         dispatch(
           changeField({
             form: 'join',
@@ -75,7 +75,7 @@ const Join = ({ history }) => {
       console.log('회원가입 성공');
       history.push('/');
     }
-  }, [auth, authError, history, dispatch]);
+  }, [auth, joinError, history, dispatch]);
 
   return (
     <Modal isVisible={true}>
