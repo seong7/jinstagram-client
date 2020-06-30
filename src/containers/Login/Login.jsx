@@ -68,13 +68,6 @@ const Login = ({ history }) => {
               value: '',
             })
           );
-          dispatch(
-            changeField({
-              form: 'login',
-              key: 'password',
-              value: '',
-            })
-          );
           break;
 
         case 'Password not correct':

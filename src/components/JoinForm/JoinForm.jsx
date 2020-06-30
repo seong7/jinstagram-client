@@ -15,7 +15,9 @@ const JoinForm = (props) => {
         onSubmit={props.onSubmit}
       >
         <Input
-          className={'join__form-element focus__shadow-blue'}
+          className={`join__form-element focus__shadow-blue ${
+            props.isIDConflict ? 'placeholder-red' : ''
+          }`}
           placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}
           name={'userId'}
           required={true}

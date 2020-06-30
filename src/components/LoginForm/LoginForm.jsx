@@ -11,7 +11,9 @@ const LoginForm = (props) => {
       onSubmit={props.onSubmit}
     >
       <Input
-        className={'login__form-element focus__shadow-blue'}
+        className={`login__form-element focus__shadow-blue ${
+          props.isIDError ? 'placeholder-red' : ''
+        }`}
         placeholder={
           props.isIDError === true ? 'ID 가 존재하지 않습니다.' : 'ID'
         }
@@ -24,7 +26,8 @@ const LoginForm = (props) => {
         focus={props.isIDError === true ? 'true' : 'false'}
       />
       <Input
-        className={'login__form-element focus__shadow-blue'}
+        className={`login__form-element focus__shadow-blue
+        ${props.isPasswordError ? 'placeholder-red' : ''}`}
         placeholder={
           props.isPasswordError === true
             ? 'Password 가 일치하지 않습니다.'
