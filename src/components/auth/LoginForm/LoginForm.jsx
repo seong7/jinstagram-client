@@ -22,7 +22,7 @@ const LoginForm = (props) => {
         type={'text'}
         value={props.inputValueState.userId}
         onChange={props.onChange}
-        autoFocus={props.isIDError}
+        shouldFocus={props.isIDError}
         prefixIcon={'BsPersonFill'}
       />
       <AuthInput
@@ -37,7 +37,7 @@ const LoginForm = (props) => {
         type={'password'}
         value={props.inputValueState.password}
         onChange={props.onChange}
-        autoFocus={props.isPasswordError}
+        shouldFocus={props.isPasswordError}
         prefixIcon={'BsLockFill'}
       />
       <Button

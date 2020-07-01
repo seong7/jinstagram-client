@@ -9,10 +9,11 @@ const AuthInput = memo((props) => {
   const [validCheckClassName, setValidCheckClassName] = useState('');
 
   useEffect(() => {
-    if (props.autoFocus) {
+    if (props.shouldFocus) {
+      console.log('focus', input);
       input.current.focus();
     }
-  }, [props.autoFocus, input]);
+  }, [props.shouldFocus, input]);
 
   return (
     <div className={props.className}>
