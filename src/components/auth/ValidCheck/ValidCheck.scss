@@ -6,14 +6,18 @@
   padding: 0px 20px;
   transition: height ease-in-out 0.3s;
   font-size: 0.8rem;
+  letter-spacing: 0.6px;
+  .check-valid {
+    color: #00cd06;
+  }
+  .check-unvalid {
+    color: rgb(253, 65, 65);
+  }
+  .check-icon svg {
+    transform: translateY(1.5px);
+  }
 }
 
 .valid-check.active {
   height: 40px;
-  .check_valid {
-    color: blue;
-  }
-  .check-unvalid {
-    color: red;
-  }
 }

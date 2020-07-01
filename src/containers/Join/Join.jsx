@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { changeField, join } from '../../modules/auth';
+import { changeField, join, validCheck } from '../../modules/auth';
 import { JoinForm } from '../../components/auth';
 import { Modal } from '../../components/common';
 
@@ -20,6 +20,12 @@ const Join = ({ history }) => {
       dispatch(
         changeField({
           form: 'join',
+          key: name,
+          value,
+        })
+      );
+      dispatch(
+        validCheck({
           key: name,
           value,
         })
@@ -72,6 +78,11 @@ const Join = ({ history }) => {
           userId: form.userId,
           password: form.password,
           passwordCheck: form.passwordCheck,
+        }}
+        validation={{
+          userId: form.userId_valid,
+          password: form.password_valid,
+          passwordCheck: form.passwordCheck_valid,
         }}
         isIDConflict={isIDConflict}
       />

@@ -16,43 +16,43 @@ const JoinForm = (props) => {
         onSubmit={props.onSubmit}
       >
         <AuthInput
+          name={'userId'}
+          placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}
           className={`join__form-element ${
             props.isIDConflict ? 'placeholder-red' : ''
           }`}
-          placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}
-          name={'userId'}
           required={true}
           maxLength={'20'}
           type={'text'}
           value={props.inputValueState.userId}
           onChange={props.onChange}
-          focus={props.isIDConflict}
+          autoFocus={props.isIDConflict}
           prefixIcon={'BsPersonFill'}
-          ValidCheck
+          validation={props.validation}
         />
         <AuthInput
-          className={'join__form-element'}
-          placeholder={'password'}
           name={'password'}
+          placeholder={'password'}
+          className={'join__form-element'}
           required={true}
           maxLength={'20'}
           type={'password'}
           value={props.inputValueState.password}
           onChange={props.onChange}
           prefixIcon={'BsLockFill'}
-          ValidCheck
+          validation={props.validation}
         />
         <AuthInput
-          className={'join__form-element'}
-          placeholder={'password 확인'}
           name={'passwordCheck'}
+          placeholder={'password 확인'}
+          className={'join__form-element'}
           required={true}
           maxLength={'20'}
           type={'password'}
           value={props.inputValueState.passwordCheck}
           onChange={props.onChange}
           prefixIcon={'BsLockFill'}
-          ValidCheck
+          validation={props.validation}
         />
         <Button
           className={'join__form-element join__form-btn bg-blue'}

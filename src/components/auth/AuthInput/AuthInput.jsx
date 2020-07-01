@@ -9,10 +9,10 @@ const AuthInput = memo((props) => {
   const [validCheckClassName, setValidCheckClassName] = useState('');
 
   useEffect(() => {
-    if (props.focus) {
+    if (props.autoFocus) {
       input.current.focus();
     }
-  }, [props.focus, input]);
+  }, [props.autoFocus, input]);
 
   return (
     <div className={props.className}>
@@ -40,11 +40,10 @@ const AuthInput = memo((props) => {
           }}
         />
       </span>
-      {props.ValidCheck && (
+      {props.validation && (
         <ValidCheck
           className={validCheckClassName}
-          name={props.placeholder}
-          value={props.value}
+          validation={props.validation[props.name]}
         />
       )}
     </div>
