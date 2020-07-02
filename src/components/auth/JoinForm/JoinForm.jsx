@@ -28,7 +28,7 @@ const JoinForm = (props) => {
           onChange={props.onChange}
           autoFocus={props.isIDConflict}
           prefixIcon={'BsPersonFill'}
-          validation={props.validation}
+          validation={props.validation.userId}
         />
         <AuthInput
           name={'password'}
@@ -40,7 +40,7 @@ const JoinForm = (props) => {
           value={props.inputValueState.password}
           onChange={props.onChange}
           prefixIcon={'BsLockFill'}
-          validation={props.validation}
+          validation={props.validation.password}
         />
         <AuthInput
           name={'passwordCheck'}
@@ -52,7 +52,7 @@ const JoinForm = (props) => {
           value={props.inputValueState.passwordCheck}
           onChange={props.onChange}
           prefixIcon={'BsLockFill'}
-          validation={props.validation}
+          validation={props.validation.passwordCheck}
         />
         <Button
           className={'join__form-element join__form-btn bg-blue'}
