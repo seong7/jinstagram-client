@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 import { AiOutlineStop } from 'react-icons/ai';
 import './ValidCheck.scss';

@@ -1,4 +1,10 @@
-import React, { useEffect, useState, memo, createRef } from 'react';
+import React, {
+  useEffect,
+  useState,
+  memo,
+  createRef,
+  useCallback,
+} from 'react';
 import { ValidCheck } from '../';
 import { ReactIcon, Input } from '../../common';
 import './AuthInput.scss';
@@ -8,6 +14,16 @@ const AuthInput = memo((props) => {
   const [boxShadow, setBoxShadow] = useState('');
   const [validCheckClassName, setValidCheckClassName] = useState('');
   const [iconColor, setIconColor] = useState('');
+
+  const handleFocus = useCallback(() => {
+    setBoxShadow('shadow-blue');
+    setValidCheckClassName('active');
+  }, [setBoxShadow, setValidCheckClassName]);
+
+  const handleBlur = useCallback(() => {
+    setBoxShadow('');
+    setValidCheckClassName('');
+  }, []);
 
   useEffect(() => {
     if (props.shouldFocus) {
@@ -42,14 +58,8 @@ const AuthInput = memo((props) => {
           maxLength={props.maxLength}
           value={props.value}
           onChange={props.onChange}
-          onFocus={() => {
-            setBoxShadow('shadow-blue');
-            setValidCheckClassName('active');
-          }}
-          onBlur={() => {
-            setBoxShadow('');
-            setValidCheckClassName('');
-          }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
       </span>
       {props.validation && (

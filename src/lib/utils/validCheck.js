@@ -14,11 +14,13 @@ export const validCheck = (items, { key, value }) => {
 
     case 'password':
       password = value;
+      break;
 
     default:
-      return regex[key].map((c, i) => {
-        const pattern = new RegExp(c.regex, 'g');
-        return { item: items[i].item, isValid: pattern.test(value) };
-      });
+      break;
   }
+  return regex[key].map((c, i) => {
+    const pattern = new RegExp(c.regex, 'g');
+    return { item: items[i].item, isValid: pattern.test(value) };
+  });
 };
