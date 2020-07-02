@@ -7,7 +7,7 @@ const regex = {
 };
 
 export const validCheck = (items, { key, value }) => {
-  console.log(items, key, value);
+  // console.log(items, key, value);
   switch (key) {
     case 'passwordCheck':
       return [{ item: '비밀번호 일치', isValid: value === password }];

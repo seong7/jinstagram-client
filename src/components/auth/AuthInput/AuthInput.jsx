@@ -30,6 +30,8 @@ const AuthInput = memo((props) => {
       console.log('focus', input);
       input.current.focus();
     }
+
+    // 해당 input 의 값이 validCheck 을 모두 통과했는지 검수
     if (props.validation) {
       const isAllValid = props.validation.reduce((isAllValid, c) => {
         return c.isValid && isAllValid;

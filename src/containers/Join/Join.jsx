@@ -8,18 +8,8 @@ import { Modal } from '../../components/common';
 const Join = ({ history }) => {
   const [isIDConflict, setIsIDConflict] = useState(false);
   const dispatch = useDispatch();
-  const {
-    form,
-    userId_valid,
-    password_valid,
-    passwordCheck_valid,
-    auth,
-    joinError,
-  } = useSelector(({ auth }) => ({
+  const { form, auth, joinError } = useSelector(({ auth }) => ({
     form: auth.join,
-    userId_valid: auth.join.userId_valid,
-    password_valid: auth.join.password_valid,
-    passwordCheck_valid: auth.join.passwordCheck_valid,
     auth: auth.auth,
     joinError: auth.joinError,
   }));
@@ -78,14 +68,6 @@ const Join = ({ history }) => {
       history.push('/');
     }
   }, [auth, joinError, history, dispatch]);
-
-  useEffect(() => {
-    const isUserIdValid = userId_valid.reduce((isAllValid, c) => {
-      return c.isValid && isAllValid;
-    }, true);
-    // password_valid
-    // passwordCheck_valid
-  }, [userId_valid]);
 
   return (
     <Modal isVisible={true}>
