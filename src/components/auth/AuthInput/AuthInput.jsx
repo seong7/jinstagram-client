@@ -10,6 +10,7 @@ import { ReactIcon, Input } from '../../common';
 import './AuthInput.scss';
 
 const AuthInput = memo((props) => {
+  const { validation, setGlobalValidation, name } = props;
   const input = createRef(null);
   const [boxShadow, setBoxShadow] = useState('');
   const [validCheckClassName, setValidCheckClassName] = useState('');
@@ -18,7 +19,7 @@ const AuthInput = memo((props) => {
   const handleFocus = useCallback(() => {
     setBoxShadow('shadow-blue');
     setValidCheckClassName('active');
-  }, [setBoxShadow, setValidCheckClassName]);
+  }, []);
 
   const handleBlur = useCallback(() => {
     setBoxShadow('');
@@ -26,23 +27,26 @@ const AuthInput = memo((props) => {
   }, []);
 
   useEffect(() => {
+    // input 에 focus 여부 결정
     if (props.shouldFocus) {
       console.log('focus', input);
       input.current.focus();
     }
+  }, [input, props.shouldFocus]);
 
+  useEffect(() => {
     // 해당 input 의 값이 validCheck 을 모두 통과했는지 검수
-    if (props.validation) {
-      const isAllValid = props.validation.reduce((isAllValid, c) => {
-        return c.isValid && isAllValid;
+    if (validation) {
+      const isInputValid = validation.reduce((isInputValid, c) => {
+        return c.isValid && isInputValid;
       }, true);
-      if (isAllValid) {
-        setIconColor('color-blue');
-      } else {
-        setIconColor('');
-      }
+
+      let _iconColor = isInputValid ? 'color-blue' : '';
+
+      setIconColor(_iconColor);
+      setGlobalValidation(name, isInputValid);
     }
-  }, [props.shouldFocus, input, props.validation]);
+  }, [validation, setGlobalValidation, name]);
 
   return (
     <div className={props.className}>

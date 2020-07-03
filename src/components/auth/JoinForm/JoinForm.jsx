@@ -26,9 +26,10 @@ const JoinForm = (props) => {
           type={'text'}
           value={props.inputValueState.userId}
           onChange={props.onChange}
-          autoFocus={props.isIDConflict}
+          shouldFocus={props.isIDConflict}
           prefixIcon={'BsPersonFill'}
           validation={props.validation.userId}
+          setGlobalValidation={props.setGlobalValidation}
         />
         <AuthInput
           name={'password'}
@@ -41,6 +42,7 @@ const JoinForm = (props) => {
           onChange={props.onChange}
           prefixIcon={'BsLockFill'}
           validation={props.validation.password}
+          setGlobalValidation={props.setGlobalValidation}
         />
         <AuthInput
           name={'passwordCheck'}
@@ -53,11 +55,15 @@ const JoinForm = (props) => {
           onChange={props.onChange}
           prefixIcon={'BsLockFill'}
           validation={props.validation.passwordCheck}
+          setGlobalValidation={props.setGlobalValidation}
         />
         <Button
-          className={'join__form-element join__form-btn bg-blue'}
+          className={`join__form-element join__form-btn ${
+            props.isSubmittable ? 'bg-blue' : 'bg-grey disabled'
+          }`}
           type={'submit'}
           text={'회원가입'}
+          // disabled={!props.isSubmittable}
         />
       </Form>
     </>

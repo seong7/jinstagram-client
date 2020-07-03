@@ -1,16 +1,18 @@
 let password; // 비밀번호 저장
 
-const regex = {
-  userId: [{ regex: /[a-z]{2}/ }, { regex: /[0-9]{1}/ }],
-  password: [{ regex: /[a-z]{1}/ }, { regex: /[0-9]{1}/ }],
-  passwordCheck: [{ item: '비밀번호 일치' }],
+const regexp = {
+  userId: [/[a-z]{1}[0-9]*[a-z]{1}/, /[0-9]{1}/],
+  password: [/[a-z]{1}/, /[0-9]{1}/],
+  passwordCheck: [],
 };
 
 export const validCheck = (items, { key, value }) => {
   // console.log(items, key, value);
   switch (key) {
     case 'passwordCheck':
-      return [{ item: '비밀번호 일치', isValid: value === password }];
+      return [
+        { item: '비밀번호 일치', isValid: value !== '' && value === password },
+      ];
 
     case 'password':
       password = value;
@@ -19,8 +21,8 @@ export const validCheck = (items, { key, value }) => {
     default:
       break;
   }
-  return regex[key].map((c, i) => {
-    const pattern = new RegExp(c.regex, 'g');
+  return regexp[key].map((c, i) => {
+    const pattern = new RegExp(c, 'g');
     return { item: items[i].item, isValid: pattern.test(value) };
   });
 };

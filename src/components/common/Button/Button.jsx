@@ -7,6 +7,7 @@ const Button = memo((props) => {
       className={`${props.className}`}
       type={props.type}
       onClick={props.onClick}
+      disabled={props.disabled}
     >
       {props.text}
     </button>

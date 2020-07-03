@@ -15,6 +15,7 @@
 .auth__input-icon-wrapper {
   margin-right: 4px;
   font-size: 18px;
+  transition: color 0.3s cubic-bezier(0.3, 0, 0.5, 1);
   &.color-blue {
     color: #05bb96;
   }
