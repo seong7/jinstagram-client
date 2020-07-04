@@ -14,34 +14,38 @@ button {
   text-decoration: none;
   white-space: nowrap;
   outline: none;
+  transition: background-color 0.3s cubic-bezier(0.3, 0, 0.5, 1);
 }
 
 .btn {
   background-color: #fafbfc;
-  border-color: rgba(27, 31, 35, 0.15);
+  border-color: rgba(10, 14, 19, 0.15);
   color: #24292e;
   box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
     inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: background-color 0.1s;
   &:hover {
     background-color: #f3f4f6;
-    transition-duration: 0.1s;
   }
 }
 
-.btn-blue {
-  border-color: #05a081;
-  background: #05a081;
+button.bg-blue {
+  border-color: #05bb96;
+  background: #05bb96;
   color: #fff;
 }
 
-.shadow-red {
-  border: 1.7px solid #ff7777;
-  box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
+button.bg-grey {
+  background: rgba(88, 88, 88, 0.65);
+  color: #fff;
+  border: 0;
 }
 
-.authorized {
-  border-color: #1fff1f;
-  background: #3cff76;
-  color: #fff;
+button.border-red {
+  border: 1.7px solid #fd8f8f;
+  // box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
+}
+
+button.disabled {
+  cursor: default;
 }

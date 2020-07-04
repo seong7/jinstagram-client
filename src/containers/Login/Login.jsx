@@ -1,23 +1,23 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { changeField, login } from '../../modules/auth';
-import { LoginForm } from '../../components';
+import { LoginForm } from '../../components/auth';
 import './Login.scss';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
-  const { form, auth, authError } = useSelector(({ auth }) => {
+  const { form, auth, loginError } = useSelector(({ auth }) => {
     // console.log('form : ', auth.login);
     return {
       form: auth.login,
       auth: auth.auth,
-      authError: auth.authError,
+      loginError: auth.loginError,
       // user: user.user,
     };
   });
-  const [isError, setIsError] = useState(null);
-  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [isPasswordError, setIsPasswordError] = useState(false);
+  const [isIDError, setIsIDError] = useState(false);
 
   const handleChange = useCallback(
     (e) => {
@@ -44,53 +44,57 @@ const Login = ({ history }) => {
           password: password,
         })
       );
-      // login(id, password).then((response) => {
-      //   if (response.status === 200) {
-      //     setIsAuthorized('authorized');
-      //     setIsError(null);
-      //   } else if (response.status !== 200) {
-      //     setIsError('error');
-      //     setIsAuthorized(null);
-      //     setFocusedInputName('password');
-      //     setPassword('');
-      //   }
-      // });
     },
-    [
-      /* id, password */
-      dispatch,
-      form,
-    ]
+    [dispatch, form]
   );
 
   useEffect(() => {
-    if (authError) {
+    if (loginError) {
       console.log('로그인 실패');
-      setIsError('error');
-      setIsPasswordFocused(true);
-      dispatch(
-        changeField({
-          form: 'login',
-          key: 'password',
-          value: '',
-        })
-      );
-      // console.log(authError);
+      console.log(loginError.message);
+      switch (loginError.message) {
+        case 'ID not found':
+          setIsIDError(true);
+          setIsPasswordError(false);
+          dispatch(
+            changeField({
+              form: 'login',
+              key: 'userId',
+              value: '',
+            })
+          );
+          break;
+
+        case 'Password not correct':
+          setIsIDError(false);
+          setIsPasswordError(true);
+          dispatch(
+            changeField({
+              form: 'login',
+              key: 'password',
+              value: '',
+            })
+          );
+          break;
+
+        default:
+          break;
+      }
     }
     if (auth) {
       console.log('로그인 성공');
       history.push('/');
       // console.log(auth);
     }
-  }, [auth, authError, dispatch, history]);
+  }, [auth, loginError, dispatch, history]);
 
   return (
     <LoginForm
       onSubmit={handleSubmit}
       onChange={handleChange}
       inputValueState={{ userId: form.userId, password: form.password }}
-      isError={isError}
-      isPasswordFocused={isPasswordFocused}
+      isPasswordError={isPasswordError}
+      isIDError={isIDError}
     />
   );
 };

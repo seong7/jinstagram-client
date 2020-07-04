@@ -1,19 +1,14 @@
 import React, { memo } from 'react';
 import './Button.scss';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
 const Button = memo((props) => {
-  const [style, setStyle] = useState('');
-
-  useEffect(() => {
-    if (props.isError) {
-      setStyle('shadow-red');
-    }
-  }, [props.isError]);
-
   return (
-    <button className={`${props.className} ${style}`} type={props.type}>
+    <button
+      className={`${props.className}`}
+      type={props.type}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.text}
     </button>
   );

@@ -1,0 +1,15 @@
+.login__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.login__form-element {
+  width: 100%;
+  height: 35.5px;
+  margin-bottom: 10px;
+}

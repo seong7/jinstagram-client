@@ -7,7 +7,6 @@ const LoginPage = () => {
   return (
     <PageLayout>
       <header className='header'>
-        <nav></nav>
         <div className='header__video-wrapper'>
           <video
             className='header__video'

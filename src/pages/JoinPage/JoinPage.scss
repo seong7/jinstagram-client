@@ -1,0 +1,21 @@
+.join__page-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%),
+    url('../../assets/join-bg.PNG');
+  background-position: center;
+  background-size: cover;
+  filter: blur(3px);
+}
+
+@media screen and (max-width: 480px) {
+  // 모바일에서는 배경사진 없이 form 으로 화면 채우기
+}
