@@ -4,7 +4,6 @@ import { startLoading, finishLoading } from '../../modules/loading';
 // Action Type 생성 함수
 
 /**
- *
  * @param {string} type
  */
 export const createRequestActionTypes = (type) => {
