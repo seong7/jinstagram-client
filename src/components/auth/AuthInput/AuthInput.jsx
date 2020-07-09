@@ -26,16 +26,16 @@ const AuthInput = memo((props) => {
     setValidCheckClassName('');
   }, []);
 
+  // input 에 focus 여부 결정
   useEffect(() => {
-    // input 에 focus 여부 결정
     if (props.shouldFocus) {
       console.log('focus', input);
       input.current.focus();
     }
   }, [input, props.shouldFocus]);
 
+  // 해당 input 의 값이 validCheck item 을 통과했는지 검수
   useEffect(() => {
-    // 해당 input 의 값이 validCheck 을 모두 통과했는지 검수
     if (validation) {
       const isInputValid = validation.reduce((isInputValid, c) => {
         return c.isValid && isInputValid;

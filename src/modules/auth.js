@@ -4,7 +4,7 @@ import createRequestSaga, {
   createRequestActionTypes,
 } from '../lib/utils/createRequestSaga';
 import * as authAPI from '../lib/api/auth';
-import * as utils from '../lib/utils/validCheck';
+import ValidChecker from '../lib/utils/validChecker';
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const INITIALIZE_AUTH = 'auth/INITIALIZE_AUTH';
@@ -47,6 +47,8 @@ export function* authSaga() {
   yield takeLatest(JOIN, joinSaga);
 }
 
+const validChecker = new ValidChecker();
+
 const initialState = {
   login: {
     userId: '',
@@ -55,16 +57,18 @@ const initialState = {
   join: {
     userId: '',
     userId_valid: [
-      { item: '영문 소문자 2자 이상', isValid: false },
-      { item: '숫자 1자 이상', isValid: false },
+      { item: validChecker.checkInfo.userId[0].item, isValid: false },
+      { item: validChecker.checkInfo.userId[1].item, isValid: false },
     ],
     password: '',
     password_valid: [
-      { item: '영문 소문자 1자 이상', isValid: false },
-      { item: '숫자 1자 이상', isValid: false },
+      { item: validChecker.checkInfo.password[0].item, isValid: false },
+      { item: validChecker.checkInfo.password[1].item, isValid: false },
     ],
     passwordCheck: '',
-    passwordCheck_valid: [{ item: '비밀번호 일치', isValid: false }],
+    passwordCheck_valid: [
+      { item: validChecker.checkInfo.passwordCheck[0].item, isValid: false },
+    ],
   },
   auth: null,
   loginError: null,
@@ -81,10 +85,7 @@ const auth = handleActions(
       ...state,
       join: {
         ...state.join,
-        [key + '_valid']: utils.validCheck(state.join[key + '_valid'], {
-          key,
-          value,
-        }),
+        [`${key}_valid`]: validChecker.check(key, value),
       },
     }),
     [INITIALIZE_AUTH]: (state) => ({
