@@ -44,6 +44,7 @@ const LoginForm = (props) => {
         className={'login__form-element bg-blue'}
         type={'submit'}
         text={'로그인'}
+        isLoading={props.isLoading}
       />
     </Form>
   );

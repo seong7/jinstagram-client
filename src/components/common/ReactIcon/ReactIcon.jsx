@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsPersonFill, BsLockFill } from 'react-icons/bs';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 const ReactIcon = ({ icon }) => {
   switch (icon) {
@@ -7,8 +8,10 @@ const ReactIcon = ({ icon }) => {
       return <BsPersonFill />;
     case 'BsLockFill':
       return <BsLockFill />;
+    case 'AiOutlineLoading':
+      return <AiOutlineLoading />;
     default:
-      return <div></div>;
+      return <></>;
   }
 };
 

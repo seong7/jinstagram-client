@@ -63,7 +63,7 @@ const JoinForm = (props) => {
           }`}
           type={'submit'}
           text={'회원가입'}
-          // disabled={!props.isSubmittable}
+          isLoading={props.isLoading}
         />
       </Form>
     </>

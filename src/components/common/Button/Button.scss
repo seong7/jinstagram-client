@@ -49,3 +49,18 @@ button.border-red {
 button.disabled {
   cursor: default;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  button .loader {
+    animation: button-loader infinite 0.7s ease-in-out;
+  }
+}
+
+@keyframes button-loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

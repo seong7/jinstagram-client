@@ -11,12 +11,16 @@ const Join = ({ history }) => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isPasswordCheckValid, setIsPasswordCheckValid] = useState(false);
   const [isSubmittable, setIsSubmittable] = useState(false);
+
   const dispatch = useDispatch();
-  const { form, auth, joinError } = useSelector(({ auth }) => ({
-    form: auth.join,
-    auth: auth.auth,
-    joinError: auth.joinError,
-  }));
+  const { form, auth, joinError, loading } = useSelector(
+    ({ auth, loading }) => ({
+      form: auth.join,
+      auth: auth.auth,
+      joinError: auth.joinError,
+      loading: loading['auth/JOIN'],
+    })
+  );
 
   const globalValidationCheck = useCallback(
     (name, isInputValid) => {
@@ -94,7 +98,7 @@ const Join = ({ history }) => {
     (e) => {
       e.preventDefault();
       // console.log('SUBMIT _ form : ', form);
-      if (isUserIdValid && isPasswordValid && isPasswordCheckValid) {
+      if (isSubmittable) {
         const { userId, password } = form;
         dispatch(
           join({
@@ -104,7 +108,7 @@ const Join = ({ history }) => {
         );
       }
     },
-    [dispatch, form, isUserIdValid, isPasswordValid, isPasswordCheckValid]
+    [dispatch, form, isSubmittable]
   );
 
   useEffect(() => {
@@ -151,6 +155,7 @@ const Join = ({ history }) => {
         setGlobalValidation={globalValidationCheck}
         isIDConflict={isIDConflict}
         isSubmittable={isSubmittable}
+        isLoading={loading}
       />
     </Modal>
   );

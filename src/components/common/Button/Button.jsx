@@ -1,7 +1,23 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { ReactIcon } from '../';
 import './Button.scss';
 
 const Button = memo((props) => {
+  const [text, setText] = useState(null);
+
+  // loader 인지 아닌지 판단
+  useEffect(() => {
+    if (props.isLoading) {
+      setText(
+        <span className={'loader'}>
+          <ReactIcon icon={'AiOutlineLoading'} />
+        </span>
+      );
+    } else if (!props.isLoading) {
+      setText(<span>{props.text}</span>);
+    }
+  }, [props.isLoading, props.text]);
+
   return (
     <button
       className={`${props.className}`}
@@ -9,7 +25,7 @@ const Button = memo((props) => {
       onClick={props.onClick}
       disabled={props.disabled}
     >
-      {props.text}
+      {text}
     </button>
   );
 });

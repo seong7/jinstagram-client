@@ -29,7 +29,6 @@ const AuthInput = memo((props) => {
   // input 에 focus 여부 결정
   useEffect(() => {
     if (props.shouldFocus) {
-      console.log('focus', input);
       input.current.focus();
     }
   }, [input, props.shouldFocus]);

@@ -7,15 +7,18 @@ import './Login.scss';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
-  const { form, auth, loginError } = useSelector(({ auth }) => {
-    // console.log('form : ', auth.login);
-    return {
-      form: auth.login,
-      auth: auth.auth,
-      loginError: auth.loginError,
-      // user: user.user,
-    };
-  });
+  const { form, auth, loginError, loading } = useSelector(
+    ({ auth, loading }) => {
+      // console.log('form : ', auth.login);
+      return {
+        form: auth.login,
+        auth: auth.auth,
+        loginError: auth.loginError,
+        loading: loading['auth/LOGIN'],
+        // user: user.user,
+      };
+    }
+  );
   const [isPasswordError, setIsPasswordError] = useState(false);
   const [isIDError, setIsIDError] = useState(false);
 
@@ -99,6 +102,7 @@ const Login = ({ history }) => {
       inputValueState={{ userId: form.userId, password: form.password }}
       isPasswordError={isPasswordError}
       isIDError={isIDError}
+      isLoading={loading}
     />
   );
 };
