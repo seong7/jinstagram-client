@@ -29,8 +29,11 @@ const Login = ({ history }) => {
           value,
         })
       );
+
+      if (isPasswordError) setIsPasswordError(false);
+      if (isIDError) setIsIDError(false);
     },
-    [dispatch]
+    [dispatch, isPasswordError, isIDError]
   );
 
   const handleSubmit = useCallback(
@@ -48,6 +51,7 @@ const Login = ({ history }) => {
     [dispatch, form]
   );
 
+  // 로그인 결과에 따른 setState
   useEffect(() => {
     if (loginError) {
       console.log('로그인 실패');

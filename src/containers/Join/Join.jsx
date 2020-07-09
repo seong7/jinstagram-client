@@ -34,12 +34,12 @@ const Join = ({ history }) => {
         default:
           break;
       }
-      console.log(
-        '전체 : ',
-        isUserIdValid,
-        isPasswordValid,
-        isPasswordCheckValid
-      );
+      // console.log(
+      //   '전체 : ',
+      //   isUserIdValid,
+      //   isPasswordValid,
+      //   isPasswordCheckValid
+      // );
 
       isUserIdValid && isPasswordValid && isPasswordCheckValid
         ? setIsSubmittable(true)
@@ -53,7 +53,7 @@ const Join = ({ history }) => {
       const { value, name } = e.target;
 
       if (/^[a-z0-9]*$/.test(value)) {
-        // 영문 소문자, 숫자만의 조합
+        // 영문 소문자, 숫자만의 조합만 입력 가능
         dispatch(
           changeField({
             form: 'join',
@@ -84,8 +84,10 @@ const Join = ({ history }) => {
           );
         }
       }
+
+      if (isIDConflict) setIsIDConflict(false);
     },
-    [dispatch]
+    [dispatch, isIDConflict]
   );
 
   const handleSubmit = useCallback(
