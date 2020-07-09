@@ -111,6 +111,10 @@ const Join = ({ history }) => {
     [dispatch, form, isSubmittable]
   );
 
+  const handleBlur = useCallback(() => {
+    setIsIDConflict(false);
+  }, []);
+
   useEffect(() => {
     if (joinError) {
       console.log('회원가입 실패');
@@ -142,6 +146,7 @@ const Join = ({ history }) => {
       <JoinForm
         onSubmit={handleSubmit}
         onChange={handleChange}
+        onBlur={handleBlur}
         inputValueState={{
           userId: form.userId,
           password: form.password,

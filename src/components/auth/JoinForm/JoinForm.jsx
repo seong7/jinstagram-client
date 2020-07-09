@@ -26,6 +26,7 @@ const JoinForm = (props) => {
           type={'text'}
           value={props.inputValueState.userId}
           onChange={props.onChange}
+          onBlur={props.onBlur}
           shouldFocus={props.isIDConflict}
           prefixIcon={'BsPersonFill'}
           validation={props.validation.userId}

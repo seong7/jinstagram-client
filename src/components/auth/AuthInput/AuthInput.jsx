@@ -24,7 +24,8 @@ const AuthInput = memo((props) => {
   const handleBlur = useCallback(() => {
     setBoxShadow('');
     setValidCheckClassName('');
-  }, []);
+    if (props.onBlur) props.onBlur();
+  }, [props]);
 
   // input 에 focus 여부 결정
   useEffect(() => {

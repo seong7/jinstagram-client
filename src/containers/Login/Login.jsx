@@ -22,6 +22,11 @@ const Login = ({ history }) => {
   const [isPasswordError, setIsPasswordError] = useState(false);
   const [isIDError, setIsIDError] = useState(false);
 
+  const handleBlur = useCallback(() => {
+    setIsPasswordError(false);
+    setIsIDError(false);
+  }, []);
+
   const handleChange = useCallback(
     (e) => {
       const { value, name } = e.target;
@@ -99,6 +104,7 @@ const Login = ({ history }) => {
     <LoginForm
       onSubmit={handleSubmit}
       onChange={handleChange}
+      onBlur={handleBlur}
       inputValueState={{ userId: form.userId, password: form.password }}
       isPasswordError={isPasswordError}
       isIDError={isIDError}
