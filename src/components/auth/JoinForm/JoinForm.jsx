@@ -7,7 +7,9 @@ const JoinForm = (props) => {
   return (
     <>
       <div>
-        <p>[ 로고 ]</p>
+        <span>
+          <img className='join_form-logo' src='./favicon.png' alt='Logo' />
+        </span>
       </div>
       <Form
         name='join'
