@@ -11,12 +11,16 @@ const Join = ({ history }) => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isPasswordCheckValid, setIsPasswordCheckValid] = useState(false);
   const [isSubmittable, setIsSubmittable] = useState(false);
+
   const dispatch = useDispatch();
-  const { form, auth, joinError } = useSelector(({ auth }) => ({
-    form: auth.join,
-    auth: auth.auth,
-    joinError: auth.joinError,
-  }));
+  const { form, auth, joinError, loading } = useSelector(
+    ({ auth, loading }) => ({
+      form: auth.join,
+      auth: auth.auth,
+      joinError: auth.joinError,
+      loading: loading['auth/JOIN'],
+    })
+  );
 
   const globalValidationCheck = useCallback(
     (name, isInputValid) => {
@@ -34,12 +38,12 @@ const Join = ({ history }) => {
         default:
           break;
       }
-      console.log(
-        '전체 : ',
-        isUserIdValid,
-        isPasswordValid,
-        isPasswordCheckValid
-      );
+      // console.log(
+      //   '전체 : ',
+      //   isUserIdValid,
+      //   isPasswordValid,
+      //   isPasswordCheckValid
+      // );
 
       isUserIdValid && isPasswordValid && isPasswordCheckValid
         ? setIsSubmittable(true)
@@ -53,7 +57,7 @@ const Join = ({ history }) => {
       const { value, name } = e.target;
 
       if (/^[a-z0-9]*$/.test(value)) {
-        // 영문 소문자, 숫자만의 조합
+        // 영문 소문자, 숫자만의 조합만 입력 가능
         dispatch(
           changeField({
             form: 'join',
@@ -84,15 +88,17 @@ const Join = ({ history }) => {
           );
         }
       }
+
+      if (isIDConflict) setIsIDConflict(false);
     },
-    [dispatch]
+    [dispatch, isIDConflict]
   );
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
       // console.log('SUBMIT _ form : ', form);
-      if (isUserIdValid && isPasswordValid && isPasswordCheckValid) {
+      if (isSubmittable) {
         const { userId, password } = form;
         dispatch(
           join({
@@ -102,8 +108,12 @@ const Join = ({ history }) => {
         );
       }
     },
-    [dispatch, form, isUserIdValid, isPasswordValid, isPasswordCheckValid]
+    [dispatch, form, isSubmittable]
   );
+
+  const handleBlur = useCallback(() => {
+    setIsIDConflict(false);
+  }, []);
 
   useEffect(() => {
     if (joinError) {
@@ -136,6 +146,7 @@ const Join = ({ history }) => {
       <JoinForm
         onSubmit={handleSubmit}
         onChange={handleChange}
+        onBlur={handleBlur}
         inputValueState={{
           userId: form.userId,
           password: form.password,
@@ -149,6 +160,7 @@ const Join = ({ history }) => {
         setGlobalValidation={globalValidationCheck}
         isIDConflict={isIDConflict}
         isSubmittable={isSubmittable}
+        isLoading={loading}
       />
     </Modal>
   );

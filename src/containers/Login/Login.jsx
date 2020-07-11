@@ -7,17 +7,25 @@ import './Login.scss';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
-  const { form, auth, loginError } = useSelector(({ auth }) => {
-    // console.log('form : ', auth.login);
-    return {
-      form: auth.login,
-      auth: auth.auth,
-      loginError: auth.loginError,
-      // user: user.user,
-    };
-  });
+  const { form, auth, loginError, loading } = useSelector(
+    ({ auth, loading }) => {
+      // console.log('form : ', auth.login);
+      return {
+        form: auth.login,
+        auth: auth.auth,
+        loginError: auth.loginError,
+        loading: loading['auth/LOGIN'],
+        // user: user.user,
+      };
+    }
+  );
   const [isPasswordError, setIsPasswordError] = useState(false);
   const [isIDError, setIsIDError] = useState(false);
+
+  const handleBlur = useCallback(() => {
+    setIsPasswordError(false);
+    setIsIDError(false);
+  }, []);
 
   const handleChange = useCallback(
     (e) => {
@@ -29,8 +37,11 @@ const Login = ({ history }) => {
           value,
         })
       );
+
+      if (isPasswordError) setIsPasswordError(false);
+      if (isIDError) setIsIDError(false);
     },
-    [dispatch]
+    [dispatch, isPasswordError, isIDError]
   );
 
   const handleSubmit = useCallback(
@@ -48,6 +59,7 @@ const Login = ({ history }) => {
     [dispatch, form]
   );
 
+  // 로그인 결과에 따른 setState
   useEffect(() => {
     if (loginError) {
       console.log('로그인 실패');
@@ -92,9 +104,11 @@ const Login = ({ history }) => {
     <LoginForm
       onSubmit={handleSubmit}
       onChange={handleChange}
+      onBlur={handleBlur}
       inputValueState={{ userId: form.userId, password: form.password }}
       isPasswordError={isPasswordError}
       isIDError={isIDError}
+      isLoading={loading}
     />
   );
 };

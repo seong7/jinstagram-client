@@ -7,7 +7,9 @@ const JoinForm = (props) => {
   return (
     <>
       <div>
-        <p>[ 로고 ]</p>
+        <span>
+          <img className='join_form-logo' src='./favicon.png' alt='Logo' />
+        </span>
       </div>
       <Form
         name='join'
@@ -26,6 +28,7 @@ const JoinForm = (props) => {
           type={'text'}
           value={props.inputValueState.userId}
           onChange={props.onChange}
+          onBlur={props.onBlur}
           shouldFocus={props.isIDConflict}
           prefixIcon={'BsPersonFill'}
           validation={props.validation.userId}
@@ -63,7 +66,7 @@ const JoinForm = (props) => {
           }`}
           type={'submit'}
           text={'회원가입'}
-          // disabled={!props.isSubmittable}
+          isLoading={props.isLoading}
         />
       </Form>
     </>

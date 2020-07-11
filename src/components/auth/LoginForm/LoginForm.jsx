@@ -22,6 +22,7 @@ const LoginForm = (props) => {
         type={'text'}
         value={props.inputValueState.userId}
         onChange={props.onChange}
+        onBlur={props.onBlur}
         shouldFocus={props.isIDError}
         prefixIcon={'BsPersonFill'}
       />
@@ -37,6 +38,7 @@ const LoginForm = (props) => {
         type={'password'}
         value={props.inputValueState.password}
         onChange={props.onChange}
+        onBlur={props.onBlur}
         shouldFocus={props.isPasswordError}
         prefixIcon={'BsLockFill'}
       />
@@ -44,6 +46,7 @@ const LoginForm = (props) => {
         className={'login__form-element bg-blue'}
         type={'submit'}
         text={'로그인'}
+        isLoading={props.isLoading}
       />
     </Form>
   );
