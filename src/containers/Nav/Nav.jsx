@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className='nav'>
       <span>
-        <a href=''>
+        <a href='/'>
           <img className='logo' src='./logo_bright.png' alt='Logo' />
         </a>
         <span>
