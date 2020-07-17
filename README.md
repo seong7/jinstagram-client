@@ -2,7 +2,7 @@
 
 React 를 사용한 SNS web-app 의 Client source repository 입니다.
 
-> API repository 로 이동 [>>>](https://github.com/seong7/sns-app-api)
+> API repository 로 이동 [>>>](https://github.com/seong7/jinstagram-api)
 
 ## local 서버 시작
 
