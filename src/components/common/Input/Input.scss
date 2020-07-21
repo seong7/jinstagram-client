@@ -3,6 +3,7 @@
   border-radius: 3px;
   padding: 0px 10px;
   outline: none;
+  background: var(--bg-input);
   &:invalid {
     box-shadow: none;
   }

@@ -23,7 +23,7 @@ const SubNav = ({ history, location }) => {
       </li>
       <li>
         <Button
-          className='bg-blue nav__sub-element'
+          className='bg-pink nav__sub-element'
           text={location.pathname === '/join' ? '로그인' : '회원가입'}
           onClick={clickJoin}
         />

@@ -4,7 +4,7 @@
   margin-bottom: 7px;
   color: rgba(0, 0, 0, 0.65);
   line-height: 1.7;
-  background-color: #fff;
+  background-color: var(--bg-input);
   border-radius: 3px;
   transition: all 0.3s;
   display: inline-flex;
@@ -16,8 +16,8 @@
   margin-right: 4px;
   font-size: 18px;
   transition: color 0.3s cubic-bezier(0.3, 0, 0.5, 1);
-  &.color-blue {
-    color: #05bb96;
+  &.color-pink {
+    color: var(--color-pink);
   }
 }
 

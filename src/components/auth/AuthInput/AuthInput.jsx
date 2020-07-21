@@ -41,7 +41,7 @@ const AuthInput = memo((props) => {
         return c.isValid && isInputValid;
       }, true);
 
-      let _iconColor = isInputValid ? 'color-blue' : '';
+      let _iconColor = isInputValid ? 'color-pink' : '';
 
       setIconColor(_iconColor);
       setGlobalValidation(name, isInputValid);

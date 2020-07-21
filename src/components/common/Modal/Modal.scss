@@ -14,8 +14,7 @@
 .modal__content {
   width: 400px;
   height: 0px;
-  background-color: rgb(255, 255, 255);
-  // transition: height 0.7s ease-in-out;
+  background-color: var(--bg);
   overflow: hidden;
   border-radius: 10px;
 }

@@ -29,9 +29,9 @@ button {
   }
 }
 
-button.bg-blue {
-  border-color: #05bb96;
-  background: #05bb96;
+button.bg-pink {
+  border-color: var(--color-pink);
+  background: var(--color-pink);
   color: #fff;
 }
 
