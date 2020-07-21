@@ -11,8 +11,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
 import 'normalize.css';
-import './variables.scss';
-import './index.scss';
+import './variables.css';
+import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

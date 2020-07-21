@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button } from '../../../components/common';
+import { ThemeToggle } from '../../../components/theme';
 import './SubNav.scss';
 
 const SubNav = ({ history, location }) => {
@@ -17,6 +18,9 @@ const SubNav = ({ history, location }) => {
 
   return (
     <ul className='nav__sub'>
+      <li>
+        <ThemeToggle />
+      </li>
       <li>
         <Button
           className='bg-blue nav__sub-element'
