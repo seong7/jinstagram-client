@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const Post = ({ history }) => {
@@ -11,7 +11,7 @@ const Post = ({ history }) => {
 
   useEffect(() => {
     if (!auth) history.push('/login');
-  }, [auth]);
+  }, [auth, history]);
 
   return (
     <div>
