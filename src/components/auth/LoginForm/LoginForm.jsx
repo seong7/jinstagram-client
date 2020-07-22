@@ -43,7 +43,7 @@ const LoginForm = (props) => {
         prefixIcon={'BsLockFill'}
       />
       <Button
-        className={'login__form-element bg-pink'}
+        className={'login__form-element btn'}
         type={'submit'}
         text={'로그인'}
         isLoading={props.isLoading}

@@ -62,7 +62,7 @@ const JoinForm = (props) => {
         />
         <Button
           className={`join__form-element join__form-btn ${
-            props.isSubmittable ? 'bg-pink' : 'bg-grey disabled'
+            props.isSubmittable ? 'btn' : 'bg-grey disabled'
           }`}
           type={'submit'}
           text={'회원가입'}
