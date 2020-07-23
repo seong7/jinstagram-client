@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageLayout } from '../styled';
 import { Login } from '../../containers';
 import './LoginPage.scss';
 
+const title = 'Jinstagram : 로그인';
+
 const LoginPage = () => {
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
   return (
     <PageLayout>
       <header className='header'>
