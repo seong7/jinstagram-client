@@ -3,11 +3,13 @@
   border-radius: 3px;
   padding: 0px 10px;
   outline: none;
+  background: var(--bg-input);
+  color: var(--color-text);
   &:invalid {
     box-shadow: none;
   }
   &::placeholder {
-    color: #2d2f31;
+    color: var(--color-text);
     font-size: 0.7rem;
   }
 }
@@ -15,7 +17,8 @@
 .focus__shadow-blue {
   transition: box-shadow ease-in-out 0.3s;
   &:focus {
-    box-shadow: 0px 0px 4px 1px #05a08185;
+    // box-shadow: 0px 0px 4px 1px #05a08185;
+    box-shadow: 0px 0px 4px 1px var(--color-pink);
   }
 }
 

@@ -12,17 +12,17 @@ import './AuthInput.scss';
 const AuthInput = memo((props) => {
   const { validation, setGlobalValidation, name } = props;
   const input = createRef(null);
-  const [boxShadow, setBoxShadow] = useState('');
+  const [boxBorder, setBoxBorder] = useState('');
   const [validCheckClassName, setValidCheckClassName] = useState('');
   const [iconColor, setIconColor] = useState('');
 
   const handleFocus = useCallback(() => {
-    setBoxShadow('shadow-blue');
+    setBoxBorder('border-left');
     setValidCheckClassName('active');
   }, []);
 
   const handleBlur = useCallback(() => {
-    setBoxShadow('');
+    setBoxBorder('');
     setValidCheckClassName('');
     if (props.onBlur) props.onBlur();
   }, [props]);
@@ -41,7 +41,7 @@ const AuthInput = memo((props) => {
         return c.isValid && isInputValid;
       }, true);
 
-      let _iconColor = isInputValid ? 'color-blue' : '';
+      let _iconColor = isInputValid ? 'color-green' : '';
 
       setIconColor(_iconColor);
       setGlobalValidation(name, isInputValid);
@@ -50,7 +50,7 @@ const AuthInput = memo((props) => {
 
   return (
     <div className={props.className}>
-      <span className={`input auth__input-wrapper ${boxShadow}`}>
+      <span className={`input auth__input-wrapper ${boxBorder}`}>
         <span className={`auth__input-icon-wrapper ${iconColor}`}>
           <ReactIcon icon={props.prefixIcon} />
         </span>

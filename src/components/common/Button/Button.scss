@@ -15,39 +15,55 @@ button {
   white-space: nowrap;
   outline: none;
   transition: background-color 0.3s cubic-bezier(0.3, 0, 0.5, 1);
-}
 
-.btn {
-  background-color: #fafbfc;
-  border-color: rgba(10, 14, 19, 0.15);
-  color: #24292e;
-  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
-    inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
-  transition: background-color 0.1s;
-  &:hover {
-    background-color: #f3f4f6;
+  &.btn {
+    // background-color: #fafbfc;
+    // border-color: rgba(10, 14, 19, 0.15);
+    // color: #24292e;
+    // box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+    //   inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+    // &:hover {
+    //   background-color: #f3f4f6;
+    // }
+    background-color: var(--bg);
+    border-color: var(--border-btn);
+    color: var(--color-text);
+    &:hover {
+      background-color: var(--bg-btn-hover);
+    }
+    transition: background-color 0.1s;
   }
-}
 
-button.bg-blue {
-  border-color: #05bb96;
-  background: #05bb96;
-  color: #fff;
-}
+  &.btn-reverse {
+    background-color: var(--bg-reverse);
+    border-color: var(--border-btn-reverse);
+    color: var(--color-text-reverse);
+    &:hover {
+      background-color: var(--bg-btn-hover-reverse);
+    }
+    transition: background-color 0.1s;
+  }
 
-button.bg-grey {
-  background: rgba(88, 88, 88, 0.65);
-  color: #fff;
-  border: 0;
-}
+  &.green {
+    border-color: var(--color-green);
+    background: var(--bg);
+    color: var(--color-green);
+  }
 
-button.border-red {
-  border: 1.7px solid #fd8f8f;
-  // box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
-}
+  &.bg-grey {
+    background: rgba(88, 88, 88, 0.65);
+    color: #fefefe;
+    border: 0;
+  }
 
-button.disabled {
-  cursor: default;
+  &.border-red {
+    border: 1.7px solid #fd8f8f;
+    // box-shadow: 0px 0px 9px 1px rgba(255, 0, 0, 0.61);
+  }
+
+  &.disabled {
+    cursor: default;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
