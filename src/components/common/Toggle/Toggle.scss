@@ -6,37 +6,42 @@
 
 .toggle-label {
   cursor: pointer;
-  text-indent: -9999px;
-  width: 56px;
-  height: 31px;
-  background: #b2b1b1;
+  // text-indent: -9999px;
+  width: 44px;
+  height: 27px;
+  background: #fefefe;
   display: block;
   border-radius: 100px;
   position: relative;
   bottom: 15px;
+
+  svg {
+    color: black;
+    position: relative;
+    top: 5px;
+    left: 2px;
+    font-size: 18px;
+  }
 }
 
 .toggle-label:after {
   content: '';
   position: absolute;
-  top: 3.5px;
-  left: 5px;
+  top: 1.6px;
+  left: 2px;
   width: 24px;
   height: 24px;
-  background: #fff;
+  background: #080827;
   border-radius: 90px;
   transition: 0.3s;
 }
 
 .toggle:checked + .toggle-label {
-  background: #080831;
+  // background: #080831;
+  // background: var(--bg-reverse);
 }
 
 .toggle:checked + .toggle-label:after {
-  left: calc(100% - 5px);
+  left: calc(100% - 2px);
   transform: translateX(-100%);
 }
-
-// .toggle-label:active:after {
-//   width: 84%;
-// }

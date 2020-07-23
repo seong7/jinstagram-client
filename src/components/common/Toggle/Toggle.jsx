@@ -9,9 +9,10 @@ const Toggle = (props) => {
         id='switch'
         className='toggle'
         onChange={props.onChange}
+        checked={props.isChecked}
       />
       <label htmlFor='switch' className='toggle-label'>
-        Toggle
+        {props.text}
       </label>
     </>
   );

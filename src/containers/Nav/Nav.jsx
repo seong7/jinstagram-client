@@ -7,11 +7,14 @@ const Nav = () => {
     <nav className='nav'>
       <span>
         <a href='/'>
-          <img className='logo' src='./logo_bright.png' alt='Logo' />
+          <span>
+            <img
+              className='logo-text'
+              src='./text_bright.png'
+              alt='jinstagram'
+            />
+          </span>
         </a>
-        <span>
-          <img className='logo-text' src='./text_bright.png' alt='jinstagram' />
-        </span>
       </span>
       <SubNav />
     </nav>
