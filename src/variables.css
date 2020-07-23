@@ -17,6 +17,7 @@ body[data-theme='light'] {
   --border-input: #2bb14c;
 
   /* button */
+  --bg-btn: var(--bg);
   --border-btn: rgba(10, 14, 19, 0.425);
   --border-btn-reverse: rgba(103, 110, 119, 0.493);
   --bg-btn-hover: #f3f4f6;
@@ -30,7 +31,8 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
   /* common */
-  --bg: #121212;
+  /* --bg: #121212; */
+  --bg: #303a52;
   --bg-reverse: #fff;
   --bg-header: linear-gradient(
       180deg,
@@ -40,13 +42,17 @@ body[data-theme='dark'] {
     linear-gradient(180deg, rgb(0 0 0 / 40%) 0%, transparent 100%);
 
   /* input */
-  --bg-input: #181818;
+  /* --bg-input: #181818; */
+  --bg-input: #383838;
   --border-input: #2bb14c;
 
   /* button */
+  /* --bg-btn: var(--bg); */
+  --bg-btn: #303a52;
   --border-btn: rgba(103, 110, 119, 0.493);
   --border-btn-reverse: rgba(10, 14, 19, 0.425);
-  --bg-btn-hover: #181818;
+  /* --bg-btn-hover: #181818; */
+  --bg-btn-hover: #384259;
   --bg-btn-hover-reverse: #f3f4f6;
 
   /* text */

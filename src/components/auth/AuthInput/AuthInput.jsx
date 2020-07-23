@@ -12,17 +12,14 @@ import './AuthInput.scss';
 const AuthInput = memo((props) => {
   const { validation, setGlobalValidation, name } = props;
   const input = createRef(null);
-  const [boxBorder, setBoxBorder] = useState('');
   const [validCheckClassName, setValidCheckClassName] = useState('');
   const [iconColor, setIconColor] = useState('');
 
   const handleFocus = useCallback(() => {
-    setBoxBorder('border-left');
     setValidCheckClassName('active');
   }, []);
 
   const handleBlur = useCallback(() => {
-    setBoxBorder('');
     setValidCheckClassName('');
     if (props.onBlur) props.onBlur();
   }, [props]);
@@ -50,7 +47,7 @@ const AuthInput = memo((props) => {
 
   return (
     <div className={props.className}>
-      <span className={`input auth__input-wrapper ${boxBorder}`}>
+      <span className={`input auth__input-wrapper`}>
         <span className={`auth__input-icon-wrapper ${iconColor}`}>
           <ReactIcon icon={props.prefixIcon} />
         </span>
