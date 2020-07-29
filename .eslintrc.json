@@ -15,7 +15,7 @@
   "rules": {
     "no-unused-vars": "off",
     "react/jsx-filename-extension": "off",
-    "linebreak-style": "warn",
+    "linebreak-style": "off",
     "jsx-quotes": 0
   }
 }
