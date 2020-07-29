@@ -13,7 +13,7 @@ const themeTransition = () => {
 
 const setBodyDataTheme = (value) => {
   // console.log('set body', value);
-  if (value) document.body.setAttribute('data-theme', value);
+  document.body.setAttribute('data-theme', value || 'light');
 };
 
 const themeIcons = (

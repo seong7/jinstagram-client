@@ -23,9 +23,10 @@ const Login = ({ history }) => {
   const [isIDError, setIsIDError] = useState(false);
 
   const handleBlur = useCallback(() => {
-    setIsPasswordError(false);
-    setIsIDError(false);
-  }, []);
+    console.log('blur');
+    if (isPasswordError) setIsPasswordError(false);
+    if (isIDError) setIsIDError(false);
+  }, [isPasswordError, isIDError]);
 
   const handleChange = useCallback(
     (e) => {
@@ -39,6 +40,7 @@ const Login = ({ history }) => {
       );
 
       if (isPasswordError) setIsPasswordError(false);
+      console.log('change');
       if (isIDError) setIsIDError(false);
     },
     [dispatch, isPasswordError, isIDError]
