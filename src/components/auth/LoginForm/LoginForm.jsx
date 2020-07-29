@@ -2,8 +2,12 @@ import React from 'react';
 import { Form, Button } from '../../common';
 import { AuthInput } from '../';
 import './LoginForm.scss';
+import { useEffect } from 'react';
 
 const LoginForm = (props) => {
+  useEffect(() => {
+    console.log(props.isIDError);
+  }, [props.isIDError]);
   return (
     <Form
       name='login'
