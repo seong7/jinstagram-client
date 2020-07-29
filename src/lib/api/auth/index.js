@@ -1,12 +1,16 @@
 const { REACT_APP_PROXY, REACT_APP_API_BASE_URL } = process.env;
 
+// 임시.. Netlify Environment Variable 문제 해결할 때까지..
+const proxy = REACT_APP_PROXY || 'https://cors-anywhere.herokuapp.com';
+const url = REACT_APP_API_BASE_URL || '3.34.91.203';
+
 /**
  * @param {string} type type of action
  * @param {Object} data data Object to set into request body
  * @return {Request}
  */
 const setRequest = (type, data) =>
-  new Request(`${REACT_APP_PROXY}/${REACT_APP_API_BASE_URL}/api/auth/${type}`, {
+  new Request(`${proxy}/${url}/api/auth/${type}`, {
     method: 'POST',
     mode: 'cors',
     headers: new Headers({
