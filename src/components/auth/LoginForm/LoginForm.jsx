@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Button } from '../../common';
-import { AuthInput } from '../';
+import AuthInput from '../AuthInput/AuthInput';
 import './LoginForm.scss';
-import { useEffect } from 'react';
 
 const LoginForm = (props) => {
   useEffect(() => {
-    console.log(props.isIDError);
+    // console.log(props.isIDError);
   }, [props.isIDError]);
   return (
     <Form
@@ -20,15 +19,15 @@ const LoginForm = (props) => {
           props.isIDError ? 'placeholder-red' : ''
         }`}
         placeholder={props.isIDError ? 'ID 가 존재하지 않습니다.' : 'ID'}
-        name={'userId'}
-        required={true}
-        maxLength={'20'}
-        type={'text'}
+        name='userId'
+        required
+        maxLength='20'
+        type='text'
         value={props.inputValueState.userId}
         onChange={props.onChange}
         onBlur={props.onBlur}
         shouldFocus={props.isIDError}
-        prefixIcon={'BsPersonFill'}
+        prefixIcon='BsPersonFill'
       />
       <AuthInput
         className={`login__form-element
@@ -36,20 +35,20 @@ const LoginForm = (props) => {
         placeholder={
           props.isPasswordError ? 'Password 가 일치하지 않습니다.' : 'Password'
         }
-        name={'password'}
-        required={true}
-        maxLength={'20'}
-        type={'password'}
+        name='password'
+        required
+        maxLength='20'
+        type='password'
         value={props.inputValueState.password}
         onChange={props.onChange}
         onBlur={props.onBlur}
         shouldFocus={props.isPasswordError}
-        prefixIcon={'BsLockFill'}
+        prefixIcon='BsLockFill'
       />
       <Button
-        className={'login__form-element btn'}
-        type={'submit'}
-        text={'로그인'}
+        className='login__form-element btn'
+        type='submit'
+        text='로그인'
         isLoading={props.isLoading}
       />
     </Form>

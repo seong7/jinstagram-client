@@ -16,6 +16,9 @@
     "no-unused-vars": "off",
     "react/jsx-filename-extension": "off",
     "linebreak-style": "off",
-    "jsx-quotes": 0
+    "jsx-quotes": 0,
+    "object-curly-newline": "off",
+    "react/prop-types": "off",
+    "react/destructuring-assignment": "off"
   }
 }

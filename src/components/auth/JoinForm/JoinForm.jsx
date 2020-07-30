@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from '../../common';
-import { AuthInput } from '../';
+import AuthInput from '../AuthInput/AuthInput';
 import './JoinForm.scss';
 
 const JoinForm = (props) => {
@@ -18,45 +18,45 @@ const JoinForm = (props) => {
         onSubmit={props.onSubmit}
       >
         <AuthInput
-          name={'userId'}
+          name='userId'
           placeholder={props.isIDConflict ? '이미 존재하는 ID 입니다.' : 'ID'}
           className={`join__form-element ${
             props.isIDConflict ? 'placeholder-red' : ''
           }`}
-          required={true}
-          maxLength={'20'}
-          type={'text'}
+          required
+          maxLength='20'
+          type='text'
           value={props.inputValueState.userId}
           onChange={props.onChange}
           onBlur={props.onBlur}
           shouldFocus={props.isIDConflict}
-          prefixIcon={'BsPersonFill'}
+          prefixIcon='BsPersonFill'
           validation={props.validation.userId}
           setGlobalValidation={props.setGlobalValidation}
         />
         <AuthInput
-          name={'password'}
-          placeholder={'password'}
-          className={'join__form-element'}
-          required={true}
-          maxLength={'20'}
-          type={'password'}
+          name='password'
+          placeholder='password'
+          className='join__form-element'
+          required
+          maxLength='20'
+          type='password'
           value={props.inputValueState.password}
           onChange={props.onChange}
-          prefixIcon={'BsLockFill'}
+          prefixIcon='BsLockFill'
           validation={props.validation.password}
           setGlobalValidation={props.setGlobalValidation}
         />
         <AuthInput
-          name={'passwordCheck'}
-          placeholder={'password 확인'}
-          className={'join__form-element'}
-          required={true}
-          maxLength={'20'}
-          type={'password'}
+          name='passwordCheck'
+          placeholder='password 확인'
+          className='join__form-element'
+          required
+          maxLength='20'
+          type='password'
           value={props.inputValueState.passwordCheck}
           onChange={props.onChange}
-          prefixIcon={'BsLockFill'}
+          prefixIcon='BsLockFill'
           validation={props.validation.passwordCheck}
           setGlobalValidation={props.setGlobalValidation}
         />
@@ -64,8 +64,8 @@ const JoinForm = (props) => {
           className={`join__form-element join__form-btn ${
             props.isSubmittable ? 'btn' : 'bg-grey disabled'
           }`}
-          type={'submit'}
-          text={'회원가입'}
+          type='submit'
+          text='회원가입'
           isLoading={props.isLoading}
         />
       </Form>
