@@ -34,9 +34,10 @@ const AuthInput = memo((props) => {
   // 해당 input 의 값이 validCheck item 을 통과했는지 검수
   useEffect(() => {
     if (validation) {
-      const isInputValid = validation.reduce((isTheInputValid, c) => {
-        return c.isValid && isTheInputValid;
-      }, true);
+      const isInputValid = validation.reduce(
+        (isTheInputValid, c) => c.isValid && isTheInputValid,
+        true
+      );
 
       const color = isInputValid ? 'color-green' : '';
 

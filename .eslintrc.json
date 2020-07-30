@@ -19,6 +19,7 @@
     "jsx-quotes": 0,
     "object-curly-newline": "off",
     "react/prop-types": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    "comma-dangle": "off"
   }
 }
