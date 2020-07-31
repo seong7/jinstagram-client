@@ -1,6 +1,6 @@
-import Login from './Login/Login.jsx';
-import Join from './Join/Join.jsx';
-import Nav from './Nav/Nav.jsx';
-import Post from './Post/Post.jsx';
+import Login from './Login/Login';
+import Join from './Join/Join';
+import Nav from './Nav/Nav';
+import Post from './Post/Post';
 
 export { Login, Join, Nav, Post };
