@@ -12,7 +12,7 @@ const Modal = (props) => {
 
   return (
     <div className={`modal__wrapper ${classNames}`}>
-      <div className={`modal__content`}>{props.children}</div>
+      <div className='modal__content'>{props.children}</div>
     </div>
   );
 };

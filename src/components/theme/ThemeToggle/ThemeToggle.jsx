@@ -18,7 +18,7 @@ const setBodyDataTheme = (value) => {
 
 const themeIcons = (
   <>
-    <ReactIcon icon={'IoIosMoon'} /> <ReactIcon icon={'WiDaySunny'} />
+    <ReactIcon icon='IoIosMoon' /> <ReactIcon icon='WiDaySunny' />
   </>
 );
 
