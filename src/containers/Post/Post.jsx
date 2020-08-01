@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const Post = ({ history }) => {
-  const { auth } = useSelector(({ auth }) => {
+  const { auth } = useSelector(({ auth: _auth }) => {
     return {
-      auth: auth.auth,
+      auth: _auth.auth,
     };
   });
 

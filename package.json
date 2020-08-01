@@ -187,7 +187,9 @@
       "react/button-has-type": "off",
       "import/prefer-default-export": "off",
       "func-names": "off",
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "react/jsx-one-expression-per-line": "off",
+      "operator-linebreak": "off"
     }
   }
 }
