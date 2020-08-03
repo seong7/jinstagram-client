@@ -1,3 +1,3 @@
-import ThemeToggle from './ThemeToggle/ThemeToggle.jsx';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
 
 export { ThemeToggle };

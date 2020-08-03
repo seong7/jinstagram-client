@@ -5,7 +5,7 @@ import React, {
   createRef,
   useCallback,
 } from 'react';
-import { ValidCheck } from '../';
+import ValidCheck from '../ValidCheck/ValidCheck';
 import { ReactIcon, Input } from '../../common';
 import './AuthInput.scss';
 
@@ -34,26 +34,27 @@ const AuthInput = memo((props) => {
   // 해당 input 의 값이 validCheck item 을 통과했는지 검수
   useEffect(() => {
     if (validation) {
-      const isInputValid = validation.reduce((isInputValid, c) => {
-        return c.isValid && isInputValid;
-      }, true);
+      const isInputValid = validation.reduce(
+        (isTheInputValid, c) => c.isValid && isTheInputValid,
+        true
+      );
 
-      let _iconColor = isInputValid ? 'color-green' : '';
+      const color = isInputValid ? 'color-green' : '';
 
-      setIconColor(_iconColor);
+      setIconColor(color);
       setGlobalValidation(name, isInputValid);
     }
   }, [validation, setGlobalValidation, name]);
 
   return (
     <div className={props.className}>
-      <span className={`input auth__input-wrapper`}>
+      <span className='input auth__input-wrapper'>
         <span className={`auth__input-icon-wrapper ${iconColor}`}>
           <ReactIcon icon={props.prefixIcon} />
         </span>
         <Input
           ref={input}
-          className={'auth__input'}
+          className='auth__input'
           name={props.name}
           placeholder={props.placeholder}
           type={props.type}

@@ -35,6 +35,7 @@ export const login = async ({ userId, password }) => {
     const message = await response.text(); // response.body (ReadableStream) 를 string 형태로 parsing
     throw new Error(message);
   }
+  return response;
 };
 
 /**
@@ -52,4 +53,5 @@ export const join = async ({ userId, password }) => {
     const message = await response.text();
     throw new Error(message);
   }
+  return response;
 };

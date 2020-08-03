@@ -1,6 +1,6 @@
-import AuthInput from './AuthInput/AuthInput.jsx';
-import JoinForm from './JoinForm/JoinForm.jsx';
-import LoginForm from './LoginForm/LoginForm.jsx';
-import ValidCheck from './ValidCheck/ValidCheck.jsx';
+import AuthInput from './AuthInput/AuthInput';
+import JoinForm from './JoinForm/JoinForm';
+import LoginForm from './LoginForm/LoginForm';
+import ValidCheck from './ValidCheck/ValidCheck';
 
 export { AuthInput, JoinForm, LoginForm, ValidCheck };

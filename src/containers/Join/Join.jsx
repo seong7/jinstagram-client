@@ -14,11 +14,11 @@ const Join = ({ history }) => {
 
   const dispatch = useDispatch();
   const { form, auth, joinError, loading } = useSelector(
-    ({ auth, loading }) => ({
-      form: auth.join,
-      auth: auth.auth,
-      joinError: auth.joinError,
-      loading: loading['auth/JOIN'],
+    ({ auth: _auth, loading: _loading }) => ({
+      form: _auth.join,
+      auth: _auth.auth,
+      joinError: _auth.joinError,
+      loading: _loading['auth/JOIN'],
     })
   );
 
@@ -45,9 +45,11 @@ const Join = ({ history }) => {
       //   isPasswordCheckValid
       // );
 
-      isUserIdValid && isPasswordValid && isPasswordCheckValid
-        ? setIsSubmittable(true)
-        : setIsSubmittable(false);
+      if (isUserIdValid && isPasswordValid && isPasswordCheckValid) {
+        setIsSubmittable(true);
+      } else {
+        setIsSubmittable(false);
+      }
     },
     [isUserIdValid, isPasswordValid, isPasswordCheckValid]
   );
@@ -142,7 +144,7 @@ const Join = ({ history }) => {
   }, [auth, joinError, history, dispatch]);
 
   return (
-    <Modal isVisible={true}>
+    <Modal isVisible>
       <JoinForm
         onSubmit={handleSubmit}
         onChange={handleChange}

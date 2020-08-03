@@ -36,7 +36,7 @@ const setBodyDataTheme = (value) => {
 // (ReactIcon 패키지를 받아서 사용했다.)
 const themeIcons = (
   <>
-    <ReactIcon icon={'IoIosMoon'} /> <ReactIcon icon={'WiDaySunny'} />
+    <ReactIcon icon='IoIosMoon' /> <ReactIcon icon='WiDaySunny' />
   </>
 );
 

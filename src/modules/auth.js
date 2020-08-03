@@ -94,20 +94,20 @@ const auth = handleActions(
       loginError: null,
       joinError: null,
     }),
-    [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
+    [LOGIN_SUCCESS]: (state, { payload: authInfo }) => ({
       ...state,
       loginError: null,
-      auth: auth,
+      auth: authInfo,
     }),
     [LOGIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
       loginError: error,
       auth: null,
     }),
-    [JOIN_SUCCESS]: (state, { payload: auth }) => ({
+    [JOIN_SUCCESS]: (state, { payload: authInfo }) => ({
       ...state,
       joinError: null,
-      auth: auth,
+      auth: authInfo,
     }),
     [JOIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
