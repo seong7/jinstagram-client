@@ -36,11 +36,11 @@ const LoginPage = () => {
             />
           </video>
         </div>
-        <section className='header__content-centered'>
-          <p>Welcome to Jinstagram!</p>
+        <section className='header__text-centered'>
+          <p>Lorem Ipsum Rose Test</p>
         </section>
       </header>
-      <section>
+      <section className='login__form-wrapper'>
         <Login />
       </section>
     </PageLayout>
