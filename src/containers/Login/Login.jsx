@@ -8,13 +8,13 @@ import './Login.scss';
 const Login = ({ history }) => {
   const dispatch = useDispatch();
   const { form, auth, loginError, loading } = useSelector(
-    ({ auth, loading }) => {
+    ({ auth: _auth, loading: _loading }) => {
       // console.log('form : ', auth.login);
       return {
-        form: auth.login,
-        auth: auth.auth,
-        loginError: auth.loginError,
-        loading: loading['auth/LOGIN'],
+        form: _auth.login,
+        auth: _auth.auth,
+        loginError: _auth.loginError,
+        loading: _loading['auth/LOGIN'],
         // user: user.user,
       };
     }
@@ -53,8 +53,8 @@ const Login = ({ history }) => {
       const { userId, password } = form;
       dispatch(
         login({
-          userId: userId,
-          password: password,
+          userId,
+          password,
         })
       );
     },

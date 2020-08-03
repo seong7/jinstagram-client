@@ -2,17 +2,17 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
+import * as serviceWorker from './serviceWorker';
+import App from './App';
 import 'normalize.css';
 import './variables.css';
-import './index.css';
+import './index.scss';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

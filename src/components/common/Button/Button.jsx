@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { ReactIcon } from '../';
+import ReactIcon from '../ReactIcon/ReactIcon';
 import './Button.scss';
 
 const Button = memo((props) => {
@@ -9,8 +9,8 @@ const Button = memo((props) => {
   useEffect(() => {
     if (props.isLoading) {
       setText(
-        <span className={'loader'}>
-          <ReactIcon icon={'AiOutlineLoading'} />
+        <span className='loader'>
+          <ReactIcon icon='AiOutlineLoading' />
         </span>
       );
     } else if (!props.isLoading) {

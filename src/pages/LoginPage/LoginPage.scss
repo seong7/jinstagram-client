@@ -10,17 +10,18 @@
 .header:before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 54px;
   left: 0;
   right: 0;
   bottom: 0;
   background: var(--bg-header);
+  height: 100%;
   z-index: 1;
 }
 
 .header__video-wrapper {
   position: absolute;
-  top: 0;
+  top: 54px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -35,12 +36,27 @@
   object-fit: cover;
 }
 
-.header__content-centered {
+.header__text-centered {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bolder;
   z-index: 1;
+}
+
+.login__form-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .header {
+    min-height: 204px;
+  }
 }

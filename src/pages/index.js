@@ -1,5 +1,5 @@
-import LoginPage from './LoginPage/LoginPage.jsx';
-import JoinPage from './JoinPage/JoinPage.jsx';
-import PostPage from './PostPage/PostPage.jsx';
+import LoginPage from './LoginPage/LoginPage';
+import JoinPage from './JoinPage/JoinPage';
+import PostPage from './PostPage/PostPage';
 
 export { LoginPage, JoinPage, PostPage };

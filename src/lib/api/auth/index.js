@@ -1,8 +1,7 @@
 const { REACT_APP_PROXY, REACT_APP_API_BASE_URL } = process.env;
 
-// 임시.. Netlify Environment Variable 문제 해결할 때까지..
-const proxy = REACT_APP_PROXY || 'https://cors-anywhere.herokuapp.com';
-const url = REACT_APP_API_BASE_URL || '3.34.91.203';
+const proxy = REACT_APP_PROXY;
+const url = REACT_APP_API_BASE_URL;
 
 /**
  * @param {string} type type of action
@@ -35,6 +34,7 @@ export const login = async ({ userId, password }) => {
     const message = await response.text(); // response.body (ReadableStream) 를 string 형태로 parsing
     throw new Error(message);
   }
+  return response;
 };
 
 /**
@@ -52,4 +52,5 @@ export const join = async ({ userId, password }) => {
     const message = await response.text();
     throw new Error(message);
   }
+  return response;
 };

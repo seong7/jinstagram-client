@@ -11,7 +11,7 @@ const themeTransition = () => {
     document.body.classList.remove('theme-transition');
   }, 1000);
   /*
-     css 에 아래를 추가해줘야한다. 
+     css 에 아래를 추가해줘야한다.
 
      .theme-transition {
        body.theme-transition,
@@ -36,7 +36,7 @@ const setBodyDataTheme = (value) => {
 // (ReactIcon 패키지를 받아서 사용했다.)
 const themeIcons = (
   <>
-    <ReactIcon icon={'IoIosMoon'} /> <ReactIcon icon={'WiDaySunny'} />
+    <ReactIcon icon='IoIosMoon' /> <ReactIcon icon='WiDaySunny' />
   </>
 );
 

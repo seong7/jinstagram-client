@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2020": true
+  },
+  "extends": ["react-app", "plugin:react/recommended", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-unused-vars": 0,
+    "react/jsx-filename-extension": 0,
+    "linebreak-style": 0,
+    "jsx-quotes": 0,
+    "object-curly-newline": 0,
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "comma-dangle": 0,
+    "arrow-body-style": 0,
+    "implicit-arrow-linebreak": 0,
+    "no-else-return": 0,
+    "array-bracket-spacing": 0,
+    "react/button-has-type": 0,
+    "import/prefer-default-export": 0,
+    "func-names": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "operator-linebreak": 0,
+    "jsx-a11y/media-has-caption": 0
+  }
+}
