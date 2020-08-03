@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 import App from './App';
 import 'normalize.css';
 import './variables.css';
-import './index.css';
+import './index.scss';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

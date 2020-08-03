@@ -17,8 +17,9 @@ const LoginPage = () => {
           <video
             className='header__video'
             autoPlay
-            muted
+            // muted='muted'
             loop
+            // playsinline='playsinline'
             poster='https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg'
           >
             <source
@@ -32,7 +33,7 @@ const LoginPage = () => {
           </video>
         </div>
         <section className='header__content-centered'>
-          <p>Get Connected To The World, now</p>
+          <p>Welcome to Jinstagram!</p>
         </section>
       </header>
       <section>

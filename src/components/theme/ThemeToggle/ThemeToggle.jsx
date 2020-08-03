@@ -11,7 +11,7 @@ const themeTransition = () => {
     document.body.classList.remove('theme-transition');
   }, 1000);
   /*
-     css 에 아래를 추가해줘야한다. 
+     css 에 아래를 추가해줘야한다.
 
      .theme-transition {
        body.theme-transition,
