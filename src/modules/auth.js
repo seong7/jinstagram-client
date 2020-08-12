@@ -2,9 +2,9 @@ import { createAction, handleActions } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
 import createRequestSaga, {
   createRequestActionTypes,
-} from '../lib/utils/createRequestSaga';
-import * as authAPI from '../lib/api/auth';
-import ValidChecker from '../lib/utils/validChecker';
+} from 'lib/utils/createRequestSaga';
+import * as authAPI from 'lib/api/auth';
+import ValidChecker from 'lib/utils/validChecker';
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const INITIALIZE_AUTH = 'auth/INITIALIZE_AUTH';

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Form, Button } from '../../common';
-import AuthInput from '../AuthInput/AuthInput';
+import { Form, Button } from 'components/common';
+import { AuthInput } from 'components/auth';
 import './LoginForm.scss';
 
 const LoginForm = (props) => {

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button } from '../../../components/common';
-import { ThemeToggle } from '../../../components/theme';
+import { Button } from 'components/common';
+import { ThemeToggle } from 'components/theme';
 import './SubNav.scss';
 
 const SubNav = ({ history, location }) => {

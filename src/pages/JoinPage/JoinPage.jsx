@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { PageLayout } from '../styled';
-import { Join } from '../../containers';
+import { PageLayout } from 'pages/styled';
+import { Join } from 'containers';
 import './JoinPage.scss';
 
 const title = 'Jinstagram : 회원가입';

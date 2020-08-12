@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { startLoading, finishLoading } from '../../modules/loading';
+import { startLoading, finishLoading } from 'modules/loading';
 
 // Action Type 생성 함수
 

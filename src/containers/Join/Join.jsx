@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { changeField, join, validCheck } from '../../modules/auth';
-import { JoinForm } from '../../components/auth';
-import { Modal } from '../../components/common';
+import { changeField, join, validCheck } from 'modules/auth';
+import { JoinForm } from 'components/auth';
+import { Modal } from 'components/common';
 
 const Join = ({ history }) => {
   const [isIDConflict, setIsIDConflict] = useState(false);
