@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { Toggle, ReactIcon } from '../../common';
-import { setStorage, getStorage } from '../../../lib/localstorage/localstorage';
+import { Toggle, ReactIcon } from 'components/common';
+import { setStorage, getStorage } from 'lib/localstorage/localstorage';
 
 const keyForStorage = 'theme';
 

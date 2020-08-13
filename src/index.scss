@@ -16,7 +16,7 @@ body {
   background: var(--bg);
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-text);
   line-height: 1.4;
   overflow-x: hidden;
@@ -39,9 +39,15 @@ a {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 1199px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   html {
-    font-size: 70%;
+    font-size: 12px;
   }
 
   /* 모바일에서 font-size 16px 이상이면 input 에 auto zoom 되지 않음*/
@@ -63,13 +69,36 @@ a {
   textarea {
     font-size: 16px;
     &::placeholder {
-      font-size: 1rem;
+      font-size: 0.7rem;
     }
   }
 }
 
 @media only screen and (max-width: 320px) {
   html {
-    font-size: 60%;
+    font-size: 10px;
+  }
+
+  /* 모바일에서 font-size 16px 이상이면 input 에 auto zoom 되지 않음*/
+  input[type='color'],
+  input[type='date'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='email'],
+  input[type='month'],
+  input[type='number'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='time'],
+  input[type='url'],
+  input[type='week'],
+  select:focus,
+  textarea {
+    font-size: 16px;
+    &::placeholder {
+      font-size: 0.7rem;
+    }
   }
 }

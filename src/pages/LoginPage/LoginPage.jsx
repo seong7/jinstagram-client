@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { PageLayout } from '../styled';
-import { Login } from '../../containers';
+import { PageLayout } from 'pages/styled';
+import { Login } from 'containers';
 import './LoginPage.scss';
 
 const title = 'Jinstagram : 로그인';

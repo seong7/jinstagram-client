@@ -5,8 +5,8 @@ import React, {
   createRef,
   useCallback,
 } from 'react';
-import ValidCheck from '../ValidCheck/ValidCheck';
-import { ReactIcon, Input } from '../../common';
+import { ValidCheck } from 'components/auth';
+import { ReactIcon, Input } from 'components/common';
 import './AuthInput.scss';
 
 const AuthInput = memo((props) => {

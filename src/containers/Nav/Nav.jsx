@@ -1,5 +1,5 @@
 import React from 'react';
-import SubNav from './SubNav/SubNav';
+import SubNav from 'containers/Nav/SubNav/SubNav';
 import './Nav.scss';
 
 const Nav = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { Nav } from './containers';
-import { LoginPage, JoinPage, PostPage } from './pages';
+import { Nav } from 'containers';
+import { LoginPage, JoinPage, PostPage } from 'pages';
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import ReactIcon from '../ReactIcon/ReactIcon';
+import { ReactIcon } from 'components/common';
 import './Button.scss';
 
 const Button = memo((props) => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { PageLayout } from '../styled';
-import { Post } from '../../containers';
+import { PageLayout } from 'pages/styled';
+import { Post } from 'containers';
 
 const title = 'Jinstagram';
 
