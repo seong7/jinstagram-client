@@ -4,13 +4,14 @@ const proxy = REACT_APP_PROXY;
 const url = REACT_APP_API_BASE_URL;
 
 /**
- * @param {string} type type of action
+ * @param {string} method method of http request
+ * @param {string} requestType type of action
  * @param {Object} data data Object to set into request body
  * @return {Request}
  */
-const setRequest = (type, data) =>
-  new Request(`${proxy}/${url}/api/auth/${type}`, {
-    method: 'POST',
+const setAuthRequest = (method, requestType, data) =>
+  new Request(`${proxy}/${url}/api/auth/${requestType}`, {
+    method,
     mode: 'cors',
     headers: new Headers({
       'content-type': 'application/json',
@@ -26,7 +27,9 @@ const setRequest = (type, data) =>
  */
 export const login = async ({ userId, password }) => {
   // console.log(userId, password);
-  const response = await fetch(setRequest('login', { userId, password }));
+  const response = await fetch(
+    setAuthRequest('post', 'login', { userId, password })
+  );
   if (response.status === 200) {
     console.log(response);
     return response;
@@ -44,7 +47,9 @@ export const login = async ({ userId, password }) => {
  * @return {Response}
  */
 export const join = async ({ userId, password }) => {
-  const response = await fetch(setRequest('join', { userId, password }));
+  const response = await fetch(
+    setAuthRequest('post', 'join', { userId, password })
+  );
   // console.log(response);
   if (response.status === 200) {
     return response;
@@ -53,4 +58,12 @@ export const join = async ({ userId, password }) => {
     throw new Error(message);
   }
   return response;
+};
+
+export const check = async () => {
+  await fetch(setAuthRequest('get', 'check'));
+};
+
+export const logout = async () => {
+  await fetch(setAuthRequest('post', 'logout'));
 };

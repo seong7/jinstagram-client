@@ -2,20 +2,21 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { changeField, login } from 'modules/auth';
+import { check } from 'modules/user';
 import { LoginForm } from 'components/auth';
 import './Login.scss';
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();
-  const { form, auth, loginError, loading } = useSelector(
-    ({ auth: _auth, loading: _loading }) => {
+  const { form, auth, loginError, loading, user } = useSelector(
+    ({ auth: _auth, loading: _loading, user: _user }) => {
       // console.log('form : ', auth.login);
       return {
         form: _auth.login,
         auth: _auth.auth,
         loginError: _auth.loginError,
         loading: _loading['auth/LOGIN'],
-        // user: user.user,
+        user: _user.user,
       };
     }
   );
@@ -97,10 +98,20 @@ const Login = ({ history }) => {
     }
     if (auth) {
       console.log('로그인 성공');
-      history.push('/');
-      // console.log(auth);
+      console.log(auth);
+
+      dispatch(check()); // 여기서 진행이 안됨
     }
   }, [auth, loginError, dispatch, history]);
+
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      console.log('check API 성공');
+      console.log(user);
+      history.push('/');
+    }
+  }, [history, user]);
 
   return (
     <LoginForm
