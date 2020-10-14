@@ -1,10 +1,10 @@
 # Jinstgram
 
-React 를 사용한 SNS web-app 의 Client source repository 입니다.
+Full-stack 으로 회원가입과 로그인 기능을 구현한 간단한 web-app 입니다.
 
-> API repository 로 이동 [>>>](https://github.com/seong7/jinstagram-api)
+> Server repository 로 이동 [>>>](https://github.com/seong7/jinstagram-api)
 
-## local 서버 시작
+## 실행 명령어
 
 ```
 $ yarn install
@@ -19,16 +19,6 @@ $ yarn start
 - **Style** : sass / styled-components
 - **Code Style** : eslint (airbnb) / prettier
 
-## 주요 기능
-
-- 회원가입 / 로그인
-- Dark mode (예정)
-- 게시물 업로드 및 수정, 삭제 (예정)
-- 게시물 공개 범위 (예정)
-  - 전체 공개
-  - 팔로워만 보기
-  - 나만 보기
-- 팔로우 (예정)
 
 ## 폴더 구조
 
